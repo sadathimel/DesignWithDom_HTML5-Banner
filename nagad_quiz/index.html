@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nagad creative by Purple Patch</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="//purplepatch.online/assets/ico/favicon.ico"
+    />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="slide_1 absolute">
+        <div class="element_1 absolute">
+          <img src="./images/ques.png" />
+        </div>
+        <div class="element_2 absolute">
+          <img src="./images/a1.png" />
+        </div>
+        <div class="element_3 absolute">
+          <img src="./images/a2.png" />
+        </div>
+        <div class="element_4 absolute">
+          <img src="./images/a3.png" />
+        </div>
+        <div class="element_5 absolute">
+          <img src="./images/a4.png" />
+        </div>
+      </div>
+      <div class="slide_2 absolute hidden">
+        <div class="element_1 absolute fadeInZoom">
+          <img src="./images/right.png" />
+        </div>
+        <div class="element_2 absolute">
+          <img src="./images/darkoverlay.jpg" />
+        </div>
+      </div>
+      <div class="slide_3 absolute hidden">
+        <div class="element_1 absolute fadeInZoom">
+          <img src="./images/wrong.png" />
+        </div>
+        <div class="element_2 absolute">
+          <img src="./images/darkoverlay.jpg" />
+        </div>
+      </div>
+      <div class="slide_4 absolute hidden">
+        <div class="element_1 absolute">
+          <img src="./images/bike2.png" />
+        </div>
+        <div class="element_2 absolute">
+          <img src="./images/copy3.png" />
+        </div>
+        <div class="element_3 absolute pulse">
+          <img src="./images/cta.png" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var slide1 = document.querySelector(".slide_1");
+
+      var slide1ele1 = document.querySelector(".slide_1 .element_1");
+      var slide1ele2 = document.querySelector(".slide_1 .element_2");
+      var slide1ele3 = document.querySelector(".slide_1 .element_3");
+      var slide1ele4 = document.querySelector(".slide_1 .element_4");
+      var slide1ele5 = document.querySelector(".slide_1 .element_5");
+
+      var slide2 = document.querySelector(".slide_2");
+      var slide2ele1 = document.querySelector(".slide_2 .element_1");
+      var slide2ele2 = document.querySelector(".slide_2 .element_2");
+
+      var slide3 = document.querySelector(".slide_3");
+      var slide3ele1 = document.querySelector(".slide_3 .element_1");
+      var slide3ele2 = document.querySelector(".slide_3 .element_2");
+
+      var slide4 = document.querySelector(".slide_4");
+      var slide4ele1 = document.querySelector(".slide_4 .element_1");
+      var slide4ele2 = document.querySelector(".slide_4 .element_2");
+      var slide4ele3 = document.querySelector(".slide_4 .element_1");
+      var slide4ele4 = document.querySelector(".slide_4 .element_2");
+
+      main();
+      function main() {
+        slide1ele2.addEventListener("click", function () {
+          slide2.classList.remove("hidden");
+          setTimeout(() => {
+            slide1.classList.add("hidden");
+            slide2.classList.add("hidden");
+            slide4.classList.remove("hidden");
+            slide4.classList.add("fadeIn");
+            // slide4.classList.add('hidden').add('fadeIn');
+          }, 1500);
+        });
+
+        slide1ele3.addEventListener("click", function () {
+          slide3.classList.remove("hidden");
+          setTimeout(() => {
+            slide1.classList.add("hidden");
+            slide3.classList.add("hidden");
+            slide4.classList.remove("hidden");
+            slide4.classList.add("fadeIn");
+          }, 1500);
+        });
+
+        slide1ele4.addEventListener("click", function () {
+          slide3.classList.remove("hidden");
+          setTimeout(() => {
+            slide1.classList.add("hidden");
+            slide3.classList.add("hidden");
+            slide4.classList.remove("hidden");
+            slide4.classList.add("fadeIn");
+          }, 1500);
+        });
+        slide1ele5.addEventListener("click", function () {
+          slide3.classList.remove("hidden");
+          setTimeout(() => {
+            slide1.classList.add("hidden");
+            slide3.classList.add("hidden");
+            slide4.classList.remove("hidden");
+            slide4.classList.add("fadeIn");
+          }, 1500);
+        });
+
+        slide4ele3.addEventListener("click", function () {});
+      }
+    </script>
+  </body>
+</html>

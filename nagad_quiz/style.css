@@ -1,0 +1,149 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.wrapper{
+	width: 300px;
+	height: 250px;
+	background: url('//ms.purplepatch.online/nagad/t20/october-21/images/bg.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+.absolute{
+	position: absolute;
+}
+.hidden{
+	display: none;
+}
+.slide_1{
+
+}
+
+.slide_1 .element_1{
+	width: 220px;
+	height: 24px;
+	top: 97px;
+	left: 38px;
+}
+.slide_1 .element_2{
+	width: 193px;
+	height: 29px;
+	top: 123px;
+	left: 50px;
+	cursor: pointer;
+}
+.slide_1 .element_3{
+	width: 193px;
+	height: 29px;
+	top: 154px;
+	left: 50px;
+	cursor: pointer;
+}
+.slide_1 .element_4{
+	width: 193px;
+	height: 29px;
+	top: 185px;
+	left: 50px;
+	cursor: pointer;
+}
+.slide_1 .element_5{
+	width: 193px;
+	height: 29px;
+	top: 216px;
+	left: 50px;
+	cursor: pointer;
+}
+.slide_2{
+	width: 300px;
+	height: 250px;
+	background: transparent;
+
+}
+.slide_2 .element_1{
+	width: 201px;
+	height: 168px;
+	top: 45px;
+	left: 48px;
+	z-index: 9999;
+}
+.slide_2 .element_2{
+	width: 300px;
+	height: 250px;
+	top: 0px;
+	left: 0px;
+	opacity: .8;
+
+}
+.slide_3{}
+.slide_3 .element_1{
+	width: 201px;
+	height: 168px;
+	top: 45px;
+	left: 48px;
+	z-index: 9999;
+}
+.slide_3 .element_2{
+	width: 300px;
+	height: 250px;
+	top: 0px;
+	left: 0px;
+	opacity: .8;
+
+}
+.slide_4{}
+.slide_4 .element_1{
+	width: 152px;
+	height: 138px;
+	top: 110px;
+	left: 5px;
+	
+}
+.slide_4 .element_2{
+	width: 139px;
+	height: 74px;
+	top: 110px;
+	left: 148px;
+	
+}
+.slide_4 .element_3{
+	width: 92px;
+	height: 28px;
+	top: 194px;
+	left: 172px;
+	cursor: pointer;
+	
+}
+
+
+
+
+@keyframes pulse {
+        0% {
+            transform: scaleX(1)
+        }
+        50% {
+            transform: scale3d(.90, .90, .90)
+        }
+        to {
+            transform: scaleX(1)
+        }
+ }
+
+.pulse {
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+@keyframes fadeInZoom {
+    from {
+        opacity: 0;
+        transform: scale3d(1.3, 1.3, 1.3);
+    }
+    
+}
+.fadeInZoom {
+	animation-name:fadeInZoom ;
+    animation-duration: .8s;
+    animation-timing-function: ease-in;
+}

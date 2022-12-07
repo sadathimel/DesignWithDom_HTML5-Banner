@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .rotating_sqare {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        background-size: cover;
+        left: -5px;
+        top: -127px;
+      }
+
+      .div_rotate {
+        top: 120px;
+        left: 116px;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+      }
+
+      .one {
+        position: absolute;
+        background: blue;
+        width: 250px;
+        height: 250px;
+        top: 80px;
+        left: 25px;
+        background-size: 100% 100%;
+        border-radius: 100%;
+      }
+
+      canvas {
+        transform: rotate(-90deg);
+      }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <div class="one active">
+      <canvas id="myCanvas_left" width="250" height="250"></canvas>
+      <div class="div_rotate">
+        <div class="rotating_sqare"></div>
+      </div>
+    </div>
+    <script>
+      $(".rotating_sqare")
+        .off("mousedown")
+        .on("mousedown", function () {
+          self.rotateTick($(this).parent(), $(this));
+        });
+
+      this.rotateTick = function (_roteteDiv, rotateHandle) {
+        var self = this;
+        $(_roteteDiv).draggable({
+          handle: rotateHandle,
+          opacity: 0.001,
+          helper: "clone",
+          drag: function (event) {
+            var // get center of div to rotate
+              pw = $(_roteteDiv)[0];
+            (pwBox = pw.getBoundingClientRect()),
+              (center_x = (pwBox.left + pwBox.right) / 2),
+              (center_y = (pwBox.top + pwBox.bottom) / 2),
+              // get mouse position
+              (mouse_x = event.pageX),
+              (mouse_y = event.pageY),
+              (radians = Math.atan2(mouse_x - center_x, mouse_y - center_y)),
+              (degree = Math.round(radians * (180 / Math.PI) * -1 + 100));
+            degree += 85; // 75 is diff
+            if (degree >= 360) {
+              return;
+            }
+            // console.log(degree)
+            self.setDegree(_roteteDiv, degree);
+
+            // $(_roteteDiv).attr("hour",self.degreeToHour(degree))
+            $(_roteteDiv).attr(
+              "step",
+              ((degree - 90) / 30).toFixed(1).split(".")[1]
+            );
+          },
+          stop: function (e) {},
+        });
+      };
+      self.setDegree = function (_ele, _degree) {
+        $(_ele)
+          .css("transform", "rotate(" + _degree + "deg)")
+          .attr("val", _degree);
+        this.runCircleFunction(_degree);
+      };
+
+      this.runCircleFunction = function (_degree) {
+        if (_degree < 0) {
+          return;
+        }
+        var canvas = document.getElementById("myCanvas_left");
+        var ctx = canvas.getContext("2d");
+        var lastend = 0;
+        var data = (_degree / 360) * 100; //2.77;
+
+        var myTotal = 100;
+        let canWidth = canvas.width - 5;
+        let canHeight = canvas.height - 5;
+        ctx.clearRect(0, 0, canWidth, canHeight);
+        ctx.beginPath();
+        ctx.moveTo(canWidth / 2, canHeight / 2);
+        ctx.arc(
+          canWidth / 2,
+          canHeight / 2,
+          canHeight / 2,
+          lastend,
+          lastend + Math.PI * 2 * (data / myTotal),
+          false
+        );
+        //   ctx.lineTo(canWidth / 2, canHeight / 2);
+        ctx.fillStyle = "#f0be50";
+        ctx.strokeStyle = "#8e3900";
+        ctx.lineWidth = 8;
+        ctx.stroke();
+        ctx.fill();
+      };
+    </script>
+  </body>
+</html>

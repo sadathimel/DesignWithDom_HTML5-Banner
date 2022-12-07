@@ -1,0 +1,264 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.hidden {
+  display: none;
+}
+.absolute {
+  position: absolute;
+}
+#container {
+  width: 300px;
+  height: 250px;
+  top: 0;
+  left: 0;
+  perspective: 1500px;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide_2 {
+  width: 300 !important;
+  /* position: absolute; */
+  height: 82px;
+  top: 168px;
+  cursor: pointer;
+}
+.slide_2 .element_1 {
+  width: 300 !important;
+  position: absolute;
+  height: 82px;
+  top: 168px;
+  cursor: pointer;
+}
+
+.slide_2 .element_2 {
+  width: 145px !important;
+  height: 13px !important;
+  position: absolute;
+  top: 174px;
+  left: 70px !important;
+  cursor: pointer;
+}
+.slide_2 .element_3 {
+  width: 98px !important;
+  height: 23px !important;
+  position: absolute;
+  top: 200px;
+  left: 98px !important;
+  cursor: pointer;
+  /* transform: translateY(250%); */
+}
+.slide_2 .element_4 {
+  width: 126px !important;
+  height: 23px !important;
+  position: absolute;
+  top: 200px;
+  left: 87px !important;
+  cursor: pointer;
+  /* transform: translateY(250%); */
+}
+.slide_2 .element_5 {
+  width: 177px !important;
+  height: 24px !important;
+  position: absolute;
+  top: 202px;
+  left: 58px !important;
+  cursor: pointer;
+  /* transform: translateY(250%); */
+}
+.slide_2 .element_6 {
+  width: 130px !important;
+  height: 37px !important;
+  position: absolute;
+  top: 174px;
+  left: 75px !important;
+  cursor: pointer;
+}
+.slide_2 .element_7 {
+  width: 115px !important;
+  height: 30px !important;
+  position: absolute;
+  top: 210px;
+  left: 93px !important;
+  cursor: pointer;
+}
+.showZoomInBottom {
+  animation-name: showZoomInBottom;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+@keyframes showZoomInBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.navigation {
+  display: none;
+}
+.controls {
+  top: 27% !important;
+  opacity: 0;
+}
+#invis {
+  width: 300px;
+  height: 200px;
+  background-color: brown;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+}
+#video {
+  width: 300px;
+  /*height: 240px;*/
+  top: 0px;
+  left: 0px;
+  position: relative;
+}
+.video-controls {
+  top: -32px;
+  position: relative;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.sound {
+  float: right;
+  background: none;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+.toggle {
+  background: none;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+/*side background color*/
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInZoom {
+  from {
+    opacity: 0;
+    transform: scale3d(1.3, 1.3, 1.3);
+  }
+}
+@keyframes fadeInZoom2 {
+  from {
+    opacity: 0;
+    transform: scale3d(1.3, 1.3, 1.3);
+    left: 0px;
+  }
+  to {
+    right: 180px;
+    z-index: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(20px, 0, 0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes pan {
+  0% {
+    transform: translate3d(-10%, 0, 0);
+  }
+  90% {
+    transform: translate3d(10%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-10%, 0, 0);
+  }
+}
+
+.pan {
+  animation-name: pan;
+  animation-duration: 18s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.pulse {
+  animation-name: pulse;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+}
+
+.loop {
+  animation-iteration-count: infinite;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+.fadeInUp,
+.fadeInZoom,
+.fadeInZoom2 {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+.fadeInZoom {
+  animation-name: fadeInZoom;
+}
+.fadeInZoom2 {
+  animation-name: fadeInZoom2;
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+
+.fadeInLeft {
+  animation-name: fadeInLeft;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
