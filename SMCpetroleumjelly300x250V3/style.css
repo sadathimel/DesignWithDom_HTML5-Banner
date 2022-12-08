@@ -1,0 +1,46 @@
+*,
+head {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+.wrapper {
+  width: 300px;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+  /* background-image: url(./GDN-300x250.jpg); */
+}
+
+.bg{
+    width: 300px;
+    height: 250px;
+    position: absolute;
+}
+
+.hand{
+    width: 197px;
+    height: 144px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.product{
+    width: 114px;
+    height: 60px;
+    position:absolute;
+    bottom: 12px;
+    left: 5px;
+}
+
+.text{
+    width: 137px;
+    height: 55px;
+    position: absolute;
+    top: 46px;
+    left: 62px;
+}
