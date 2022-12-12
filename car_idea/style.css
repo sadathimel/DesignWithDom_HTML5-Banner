@@ -3,26 +3,26 @@
   padding: 0;
   box-sizing: border-box;
 }
-.wrapper {
+.pph_wrapper {
   width: 300px;
   height: 250px;
   position: relative;
 }
-.wrapper .car {
+.pph_wrapper .car {
   width: 300px;
   height: 250px;
   position: absolute;
   top: 0px;
   left: 0px;
 }
-.wrapper img {
+.pph_wrapper img {
   width: 250px;
   height: 200px;
   position: absolute;
   top: -9px;
   left: 19px;
 }
-.colors {
+.pph_colors {
   background-color: aqua;
   width: 300px;
   height: 50px;
@@ -35,48 +35,48 @@
   
   
 }
-.colors .color1{
+.pph_colors .color1{
     width:28px;
     height:33px;
     background-color:red;
     margin-left: 5px;
 }
-.colors .color2{
+.pph_colors .color2{
     width:28px;
     height:33px;
     background-color:red;
 }
-.colors .color3{
+.pph_colors .color3{
     width:28px;
     height:33px;
     background-color:red;
 }
-.colors .color4{
+.pph_colors .color4{
     width:28px;
     height:33px;
     background-color:red;
 }
-.colors .color5{
+.pph_colors .color5{
     width:28px;
     height:33px;
     background-color:red;
 }
-.colors .color6{
+.pph_colors .color6{
     width:28px;
     height:33px;
     background-color:red;
 }
-.colors .color7{
+.pph_colors .color7{
     width:28px;
     height:33px;
     background-color:red;
 }
-.colors .color8{
+.pph_colors .color8{
     width:28px;
     height:33px;
     background-color:red;
 }
-.colors .color9{
+.pph_colors .color9{
     width:28px;
     height:33px;
     background-color:red;

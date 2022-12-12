@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+.wrapper {
+  width: 300px;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+  /* background-image: url("./previewV1.jpg"); */
+}
+
+.background {
+  width: 246px;
+  height: 307px;
+  position: absolute;
+  top: -84px;
+  left: 27px;
+}
+
+.foreground {
+  width: 300px;
+  height: 250px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.slogan {
+  width: 232px;
+  height: 74px;
+  position: absolute;
+  right: 34px;
+  bottom: 6px;
+}

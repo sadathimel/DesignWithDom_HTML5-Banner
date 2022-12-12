@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 160px;
+  height: 600px;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+.wrapper {
+  width: 160px;
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+  /* background-image: url(../GDN-160x600.jpg); */
+}
+
+.bg {
+  width: 160px;
+  height: 600px;
+  position: absolute;
+}
+
+.hand {
+  width: 155px;
+  height: 146px;
+  position: absolute;
+  bottom: 174px;
+  right: 0px;
+}
+
+.product {
+  width: 151px;
+  height: 86px;
+  position: absolute;
+  bottom: 39px;
+  left: 2px;
+}
+
+.copy {
+  width: 134px;
+  height: 55px;
+  position: absolute;
+  top: 149px;
+  left: 13px;
+}
