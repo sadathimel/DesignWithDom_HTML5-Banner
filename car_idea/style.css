@@ -42,6 +42,7 @@
   background-color: #c2c330;
   margin-left: 5px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .pph_colors .color2 {
@@ -49,42 +50,49 @@
   height: 33px;
   background-color: #0b4150;
   border-radius: 5px;
+  cursor: pointer;
 }
 .pph_colors .color3 {
   width: 28px;
   height: 33px;
   background-color: #999894;
   border-radius: 5px;
+  cursor: pointer;
 }
 .pph_colors .color4 {
   width: 28px;
   height: 33px;
   background-color: #151515;
   border-radius: 5px;
+  cursor: pointer;
 }
 .pph_colors .color5 {
   width: 28px;
   height: 33px;
   background-color: #0a162a;
   border-radius: 5px;
+  cursor: pointer;
 }
 .pph_colors .color6 {
   width: 28px;
   height: 33px;
   background-color: #585855;
   border-radius: 5px;
+  cursor: pointer;
 }
 .pph_colors .color7 {
   width: 28px;
   height: 33px;
   background-color: #d5cec5;
   border-radius: 5px;
+  cursor: pointer;
 }
 .pph_colors .color8 {
   width: 28px;
   height: 33px;
   background-color: #155e8d;
   border-radius: 5px;
+  cursor: pointer;
 }
 .pph_colors .color9 {
   width: 28px;
@@ -92,13 +100,14 @@
   background-color: #931007;
   margin-right: 5px;
   border-radius: 5px;
+  cursor: pointer;
 }
 .text img {
-  width: 263px;
-  height: 28px;
+  width: 246px;
+  height: 37px;
   position: absolute;
   top: 165px;
-  left: 12px;
+  left: 21px;
 }
 .text p {
   position: absolute;

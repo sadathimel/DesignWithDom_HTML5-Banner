@@ -24,23 +24,7 @@ function carcolor() {
 
     car.src = "./image/" + className.charAt(5) + ".png";
     this.className = className + " caroutline";
-
-    const timeline = gsap.timeline({
-      defaults: { duration: 0.5 },
-      onComplete: function () {
-        click = true;
-      },
-    });
-    timeline
-      // .from(".car", {z:9, x: 200, ease: "Power2.easeOut", duration: 2 })
-      .from(".car", {
-        x: 200,
-        rotationX: 45,
-        scaleX: 1,
-        z: -22,
-        ease: "Power2.easeOut",
-        duration: 1,
-      });
+    click = true;
   }
 }
 
