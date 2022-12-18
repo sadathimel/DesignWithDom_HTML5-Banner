@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="ad.size" content="width=300,height=250" />
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Nagad Spinner</title>
+    <style>
+      .ad_box,
+      .overlayimg,
+      .wheel_board_area,
+      body,
+      html {
+        width: 300px;
+        height: 250px;
+      }
+      .bounceIn,
+      .loop {
+        animation-iteration-count: infinite;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        user-select: none;
+      }
+      .ad_box {
+        cursor: pointer;
+        touch-action: auto;
+        overflow: hidden;
+        /* background-color: #f8f7f2; */
+        background-image: url(./slide1/bg.jpg);
+        background-size: 100%;
+        position: relative;
+        user-select: none;
+      }
+      .absolute,
+      .element_1,
+      .element_10,
+      .element_2,
+      .element_9,
+      .logo,
+      .offer,
+      .offer_button,
+      .wheel_pag {
+        position: absolute;
+      }
+      .wheel_board_area {
+        left: 0;
+        top: 0;
+      }
+      .wheel_board {
+        top: 10px;
+        left: 52px;
+        transition: transform 5s cubic-bezier(0.5, 0.1, 0.15, 1);
+        transform: rotate(0);
+        z-index: 99;
+      }
+      .wheel_pag {
+        top: 5px;
+        left: 130px;
+        z-index: 100;
+      }
+      .offer {
+        top: 0;
+        left: 0;
+        z-index: 999;
+      }
+      .offer_button {
+        bottom: 5px;
+        left: 0;
+        z-index: 20;
+      }
+      .hidden {
+        display: none;
+      }
+      .zoomIn {
+        animation-name: zoomIn;
+        animation-duration: 0.3s;
+        animation-fill-mode: both;
+      }
+      @keyframes zoomIn {
+        from {
+          transform: scale(0);
+        }
+      }
+      @keyframes run {
+        0%,
+        100% {
+          right: 130px;
+        }
+        50% {
+          right: 130px;
+          transform: scale3d(0.5, 0.5, 1);
+        }
+      }
+      .overlay {
+        left: 0;
+        top: 48px;
+        z-index: 998;
+        background-image: url(./slide1/bg.jpg);
+      }
+      .overlayimg {
+        top: -45px;
+      }
+      .element_1 {
+        width: 187px;
+        height: 187px;
+        top: 26px;
+        left: 4px;
+      }
+      .element_9 {
+        width: 300px;
+        height: 250px px;
+        top: 38px;
+        left: 3px;
+        z-index: 9;
+      }
+      .element_10 {
+        width: 176px;
+        height: 28px;
+        top: -4px;
+        left: 15px;
+      }
+      .element_2 {
+        width: 187px;
+        height: 187px;
+        top: 32px;
+        left: 11px;
+      }
+      .logo {
+        right: 5px;
+        width: 82px;
+        height: 34px;
+        z-index: 99999;
+        left: 208px;
+        top: -42px;
+      }
+      .element_7 {
+        width: 82px;
+        height: 29px;
+        bottom: -7px;
+        left: 111px;
+      }
+      .element_8 {
+        top: 110px;
+        right: 120px;
+        z-index: 99;
+      }
+      .element_17 {
+        width: 297px;
+        height: 88px;
+        bottom: 0px;
+        right: 0px;
+      }
+      .element_18 {
+        width: 119px;
+        height: 113px;
+        top: 54px;
+        right: 16px;
+        z-index: 99;
+      }
+      .element_19 {
+        width: 88px;
+        height: 20px;
+        bottom: 25px;
+        right: 31px;
+        z-index: 99;
+      }
+      .element_20 {
+        top: 21px;
+        right: 8px;
+        width: 154px;
+        height: 91px;
+      }
+      .element_21 {
+        top: 59px;
+        left: 24px;
+        z-index: 99;
+        width: 124px;
+        height: 192px;
+      }
+      .slide_3 {
+        background-image: url(./slide3/bg2.jpg);
+        /* background-image: url(../slide2.jpg); */
+        width: 300px;
+        height: 250px;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scaleX(1);
+        }
+        50% {
+          transform: scale3d(1.07, 1.07, 1.07);
+        }
+      }
+      .pulse {
+        animation-name: pulse;
+        animation-duration: 2s;
+      }
+      .bounceIn {
+        animation-name: bounceIn;
+        animation-duration: 2.55s;
+        animation-timing-function: linear;
+      }
+      @keyframes bounceIn {
+        0% {
+          opacity: 0;
+          -webkit-transform: scale3d(0.5, 0.5, 0.5);
+          transform: scale3d(0.5, 0.5, 0.5);
+        }
+        20% {
+          -webkit-transform: scale3d(1.1, 1.1, 1.1);
+          transform: scale3d(1.1, 1.1, 1.1);
+        }
+        40% {
+          -webkit-transform: scale3d(0.9, 0.9, 0.9);
+          transform: scale3d(0.9, 0.9, 0.9);
+        }
+        60% {
+          opacity: 1;
+          -webkit-transform: scale3d(1.03, 1.03, 1.03);
+          transform: scale3d(1.03, 1.03, 1.03);
+        }
+        80% {
+          -webkit-transform: scale3d(0.97, 0.97, 0.97);
+          transform: scale3d(0.97, 0.97, 0.97);
+        }
+        10% {
+          opacity: 1;
+          -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+        }
+      }
+      .bounce {
+        animation-name: bounce;
+        animation-duration: 1.25s;
+      }
+      @keyframes bounce {
+        0% {
+          opacity: 0;
+          -webkit-transform: scale3d(0.3, 0.3, 0.3);
+          transform: scale3d(0.3, 0.3, 0.3);
+        }
+        20% {
+          -webkit-transform: scale3d(1.1, 1.1, 1.1);
+          transform: scale3d(1.1, 1.1, 1.1);
+        }
+        40% {
+          -webkit-transform: scale3d(0.9, 0.9, 0.9);
+          transform: scale3d(0.9, 0.9, 0.9);
+        }
+        60% {
+          opacity: 1;
+          -webkit-transform: scale3d(1.03, 1.03, 1.03);
+          transform: scale3d(1.03, 1.03, 1.03);
+        }
+        80% {
+          -webkit-transform: scale3d(0.97, 0.97, 0.97);
+          transform: scale3d(0.97, 0.97, 0.97);
+        }
+        20% {
+          opacity: 1;
+          -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ad_box">
+      <div class="wheel_board_area absolute">
+        <div class="element_1">
+          <img
+            width="187"
+            src="./slide1/spinner@2x.png"
+            class="wheel_board absolute"
+          />
+        </div>
+        <div class="element_9">
+          <img src="./slide1/shadow.png" class="wheel_board absolute" />
+        </div>
+        <div class="element_10">
+          <img src="./slide1/text1.png" class="wheel_board absolute" />
+        </div>
+        <div class="element_7 absolute">
+          <img src="./slide1/btn1.png" class="offer_button pulse loop" />
+        </div>
+      </div>
+
+      <div class="element_2">
+        <img src="./slide1/selector-pin.png" class="wheel_pag" />
+      </div>
+
+      <div class="overlay absolute hidden">
+        <div class="logo hidden absolute">
+          <img src="./slide2/nagadlogoright.png" alt="" />
+        </div>
+        <div class="overlayimg hidden absolute">
+          <img src="./slide1/bg.jpg" alt="" />
+        </div>
+
+        <div class="element_3 absolute hidden">
+          <img src="./slide2/1.png" class="offer" />
+        </div>
+        <div class="element_4 absolute hidden">
+          <img src="./slide2/2.png" class="offer" />
+        </div>
+        <div class="element_5 absolute hidden">
+          <img src="./slide2/3.png" class="offer" />
+        </div>
+        <div class="element_6 absolute hidden">
+          <img src="./slide2/4.png" class="offer" />
+        </div>
+        <div class="element_11 absolute hidden">
+          <img src="./slide2/5.png" class="offer" />
+        </div>
+        <div class="element_12 absolute hidden">
+          <img src="./slide2/6.png" class="offer" />
+        </div>
+        <div class="element_13 absolute hidden">
+          <img src="./slide2/7.png" class="offer" />
+        </div>
+        <div class="element_14 absolute hidden">
+          <img src="./slide2/8.png" class="offer" />
+        </div>
+      </div>
+
+      <div class="slide_3 absolute hidden bounce">
+        <div class="element_17 absolute">
+          <img src="./slide3/despat.png" class="offer" />
+        </div>
+        <div class="element_18 absolute">
+          <img src="./slide3/Copy.png" class="offer" />
+        </div>
+
+        <div class="element_21 absolute">
+          <img src="./slide3/Model.png" class="offer" />
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var wheel_board_area = document.querySelector(".wheel_board_area");
+        var wheelBoard = document.querySelector(".wheel_board");
+        var random = 0;
+        var clicked = false;
+
+        let element_1 = document.querySelector(".element_1");
+        let element_9 = document.querySelector(".element_9");
+        let element_10 = document.querySelector(".element_10");
+        let element_2 = document.querySelector(".element_2");
+        let element_7 = document.querySelector(".element_7");
+
+        let element3 = document.querySelector(".element_3");
+        let element4 = document.querySelector(".element_4");
+        let element5 = document.querySelector(".element_5");
+        let element6 = document.querySelector(".element_6");
+        let element11 = document.querySelector(".element_11");
+        let element12 = document.querySelector(".element_12");
+        let element13 = document.querySelector(".element_13");
+        let element14 = document.querySelector(".element_14");
+        // let element15 = document.querySelector(".element_15");
+        // let element16 = document.querySelector(".element_16");
+        let slide2 = document.querySelector(".slide2");
+        let overlayimg = document.querySelector(".overlayimg");
+        let logo = document.querySelector(".logo");
+        let slide_3 = document.querySelector(".slide_3");
+        let overlay = document.querySelector(".overlay");
+        let offer = document.querySelector(".offer");
+
+        var num = 0;
+        function spin_wheel() {
+          if (clicked === false) {
+            clicked = true;
+            num = Math.floor(Math.random() * 7);
+            random += 3600;
+            var value = random + [45, 90, 135, 180, 225, 270, 315, 360][num];
+            wheelBoard.style.transform = "rotate(" + value + "deg)";
+            luckyDraw(num);
+            console.log(num);
+          }
+        }
+        wheel_board_area.addEventListener("click", spin_wheel);
+
+        function loadGb(value) {
+          value.style.width = "300px";
+          value.style.height = "250px";
+
+          setTimeout(() => {
+            overlayimg.classList.remove("hidden");
+            logo.classList.remove("hidden");
+            overlay.className = overlay.className.replace("hidden", "zoomIn");
+            value.className = value.className.replace("hidden", "zoomIn");
+            setTimeout(() => {
+              element_1.classList.add("hidden");
+              element_9.classList.add("hidden");
+              element_10.classList.add("hidden");
+              element_2.classList.add("hidden");
+              overlay.classList.add("hidden");
+              setTimeout(() => {
+                slide_3.classList.remove("hidden");
+              }, 0);
+              element_7.classList.add("hidden");
+            }, 2000);
+          }, 6000);
+        }
+
+        function luckyDraw(value) {
+          console.log(value);
+          switch (value) {
+            case 0:
+              loadGb(element3);
+
+              break;
+            case 1:
+              loadGb(element4);
+              break;
+            case 2:
+              loadGb(element5);
+              break;
+            case 3:
+              loadGb(element6);
+              break;
+            case 4:
+              loadGb(element11);
+              break;
+            case 5:
+              loadGb(element12);
+              break;
+            case 6:
+              loadGb(element13);
+              break;
+            case 7:
+              loadGb(element14);
+              break;
+            default:
+              console.log("try again!");
+              break;
+          }
+        }
+
+        slide_3.addEventListener("click", function () {
+          window.open("{CLICK_MACRO}", "_blank");
+        });
+      })();
+    </script>
+  </body>
+</html>

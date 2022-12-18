@@ -11,33 +11,6 @@ var teamone = document.getElementById("teamone");
 var teamtwo = document.getElementById("teamtwo");
 var stat = document.getElementById("stat");
 let data = [
-  // Semifinals
-  // Semifinals
-  // Semifinals
-
-  {
-    MatchNumber: 61,
-    RoundNumber: 6,
-    DateUtc: "2022-12-13 19:00:00Z",
-    Location: "TBA",
-    HomeTeam: "Argentina",
-    AwayTeam: "Croatia",
-    Group: null,
-    HomeTeamScore: null,
-    AwayTeamScore: null,
-  },
-  {
-    MatchNumber: 62,
-    RoundNumber: 6,
-    DateUtc: "2022-12-14 19:00:00Z",
-    Location: "TBA",
-    HomeTeam: "France",
-    AwayTeam: "Morocco",
-    Group: null,
-    HomeTeamScore: null,
-    AwayTeamScore: null,
-  },
-
   // Third place match
 
   {
@@ -45,8 +18,8 @@ let data = [
     RoundNumber: 7,
     DateUtc: "2022-12-17 15:00:00Z",
     Location: "TBA",
-    HomeTeam: "To be announced",
-    AwayTeam: "To be announced",
+    HomeTeam: "Croatia",
+    AwayTeam: "Morocco",
     Group: null,
     HomeTeamScore: null,
     AwayTeamScore: null,
@@ -58,8 +31,8 @@ let data = [
     RoundNumber: 7,
     DateUtc: "2022-12-18 15:00:00Z",
     Location: "TBA",
-    HomeTeam: "To be announced",
-    AwayTeam: "To be announced",
+    HomeTeam: "Argentina",
+    AwayTeam: "France",
     Group: null,
     HomeTeamScore: null,
     AwayTeamScore: null,

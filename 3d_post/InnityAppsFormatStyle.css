@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#innity-apps-ad {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+#innity-apps-perspective-layer {
+  cursor: pointer;
+  height: 100%;
+  perspective: 700px;
+  user-select: none;
+  -webkit-user-select: none;
+  width: 100%;
+}
+
+.innity-apps-rotation-layer {
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform .5s ease-in-out;
+  width: 100%;
+}
+.innity-apps-rotation-layer.bounce-to-left {
+  animation: bounce-from-edge-to-left .3s;
+}
+@keyframes bounce-from-edge-to-left {
+  0% {right: 0}
+  10% {right: 10%}
+  30% {right: 13%}
+  100% {right: 0}
+}
+.innity-apps-rotation-layer.bounce-to-right {
+  animation: bounce-from-edge-to-right .3s;
+}
+@keyframes bounce-from-edge-to-right {
+  0% {left: 0}
+  10% {left: 10%}
+  30% {left: 13%}
+  100% {left: 0}
+}
+
+.innity-apps-rotation-layer > div {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  top: 0%;
+  position:absolute;
+  width:100%;
+  height:100%;
+}
+
+.innity-apps-layer-3d {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.innity-apps-layer-background, .innity-apps-layer-center, .innity-apps-layer-foreground {
+  pointer-events: none;
+  position: absolute;
+  transform-origin: bottom;
+  top: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  width: 100%;
+}
+.innity-apps-layer-center {
+  transform: translateZ(66px);
+}
+.innity-apps-layer-foreground {
+  transform: translateZ(120px);
+}
+
+.innity-apps-navigation {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 48%;
+  transform: translateZ(120px);
+  width: 8%;
+}
+.innity-apps-navigation.type-next {
+  right: 9%;
+}
+.innity-apps-navigation.type-prev {
+  left: 9%;
+  transform: translateZ(120px) scale(-1, 1);
+}
+
+.innity-apps-navigation img {
+  display: block;
+  width: 100%;
+}
+
+.innity-apps-navigation.hide-navigation {
+  display: none;
+}
