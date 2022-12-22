@@ -5,19 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SMC petroleum jelly</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="//purplepatch.online/assets/ico/favicon.ico"
+    />
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      .pp_wrapper {
+        width: 160px;
+        height: 600px;
+        overflow: hidden;
+        position: relative;
+        /* background-image: url(../GDN-160x600.jpg); */
+      }
+
+      .pp_bg {
+        width: 160px;
+        height: 600px;
+        position: absolute;
+      }
+
+      .pp_hand {
+        width: 160px;
+        height: 196px;
+        position: absolute;
+        bottom: 153px;
+        right: 0px;
+      }
+
+      .pp_product {
+        width: 160px;
+        height: 97px;
+        position: absolute;
+        bottom: 25px;
+        left: 0px;
+      }
+
+      .pp_copy {
+        width: 134px;
+        height: 55px;
+        position: absolute;
+        top: 169px;
+        left: 13px;
+      }
+    </style>
   </head>
   <body>
     <a href="{CLICK_MACRO}" target="_blank">
-      <div class="wrapper">
-        <img class="bg" src="./bg.jpg" alt="" />
-        <img class="hand" src="./hand.png" alt="" />
-        <img class="product" src="./product.png" alt="" />
-        <img class="copy" src="./copy.png" alt="" />
+      <div class="pp_wrapper">
+        <img class="pp_bg" src="./bg.jpg" alt="" />
+        <img class="pp_hand" src="./model.png" alt="" />
+        <img class="pp_product" src="./products.png" alt="" />
+        <img class="pp_copy" src="./copy.png" alt="" />
       </div>
     </a>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
 
-    <script src="./main.js"></script>
+    <script>
+      const timeline = gsap.timeline({ defaults: { duration: 2 } });
+      timeline
+        .from(".pp_hand", { x: 150, ease: "Power2.easeOut" })
+        .from(".pp_product", { y: 125, ease: "Power2.easeOut" }, "<")
+        .from(".pp_copy", { x: -200, ease: "Power2.easeOut" }, "<");
+      timeline.repeatDelay(2);
+      timeline.repeat(-1);
+    </script>
   </body>
 </html>
