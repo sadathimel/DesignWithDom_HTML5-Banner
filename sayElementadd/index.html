@@ -1,0 +1,207 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>
+      CodePen - Change Element with Voice (Chrome Only) #CodePenChallenge
+    </title>
+
+    <link rel="stylesheet" href="./reset.main.css" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        color: #111;
+        background-color: #fcfcfc;
+      }
+
+      h1 {
+        font-size: calc(40px + 2vh);
+        margin-bottom: 0.6em;
+      }
+
+      .element {
+        font-size: calc(50px + 4vh);
+        background-color: #add8e6;
+        border: 0.07em solid #111;
+        border-radius: 0.4em;
+        padding: 0.35em;
+        margin-bottom: 0.4em;
+        transition: background-color 200ms;
+      }
+
+      .element-symbol {
+        display: inline-block;
+        position: relative;
+      }
+
+      .element-name {
+        font-size: 0.5em;
+        margin-top: 0.5em;
+        min-width: 4.3em;
+      }
+
+      .element-atomic-number,
+      .element-atomic-weight {
+        position: absolute;
+        right: 105%;
+        font-size: 0.3em;
+      }
+
+      .element-atomic-number {
+        bottom: 0;
+      }
+
+      .heard-output {
+        font-size: calc(20px + 1vh);
+        margin-bottom: 0.8em;
+      }
+
+      .elements-link {
+        font-size: calc(18px + 0.8vh);
+        font-weight: 600;
+        color: #111;
+        border-bottom: 0.1em solid #111;
+        text-decoration: none;
+        margin-top: 0.6em;
+      }
+    </style>
+
+    <script>
+      window.console = window.console || function (t) {};
+    </script>
+
+    <script>
+      if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+      }
+    </script>
+  </head>
+
+  <body translate="no">
+    <!-- 
+  
+  Please enable your microphone.
+  
+  Please close any other tabs/windows containing speech API projects, even if only showing the preview window. 
+  
+  -->
+
+    <h1>Say Element:</h1>
+
+    <div class="element">
+      <p class="element-symbol">
+        <span class="element-abbr">He</span
+        ><sup class="element-atomic-weight">4</sup
+        ><sub class="element-atomic-number">2</sub>
+      </p>
+
+      <p class="element-name">Helium</p>
+    </div>
+
+    <p class="heard-output">Heard: Helium</p>
+
+    <script src="./script.js"></script>
+
+    <script id="rendered-js">
+      //DOM load event
+      window.addEventListener("DOMContentLoaded", () => {
+        //Set speech recognition
+        window.SpeechRecognition =
+          window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        const recognition = new SpeechRecognition(),
+          elementSquare = document.querySelector(".element"),
+          elementName = document.querySelector(".element-name"),
+          elementAbbr = document.querySelector(".element-abbr"),
+          elementNum = document.querySelector(".element-atomic-number"),
+          elementWeight = document.querySelector(".element-atomic-weight"),
+          heardOutput = document.querySelector(".heard-output"),
+          elements = {
+            himel: {
+              abbreviation: "H",
+              atomicNumber: 1,
+              atomicWeight: 1,
+              color: "#b297ca",
+            },
+
+            saif: {
+              abbreviation: "He",
+              atomicNumber: 2,
+              atomicWeight: 4,
+              color: "#add8e6",
+            },
+
+            mojib: {
+              abbreviation: "Li",
+              atomicNumber: 3,
+              atomicWeight: 7,
+              color: "#f08080",
+            },
+
+            touhid: {
+              abbreviation: "Be",
+              atomicNumber: 4,
+              atomicWeight: 9,
+              color: "#ffc04d",
+            },
+
+            himel: {
+              abbreviation: "B",
+              atomicNumber: 5,
+              atomicWeight: 11,
+              color: "#8bffd8",
+            },
+
+            mahbub: {
+              abbreviation: "C",
+              atomicNumber: 6,
+              atomicWeight: 12,
+              color: "#b297ca",
+            },
+          };
+
+        //Start speech recognition
+        recognition.start();
+
+        //Listen for when the user finishes talking
+        recognition.addEventListener("result", (e) => {
+          //Get transcript of user speech
+          const transcript = e.results[0][0].transcript
+            .toLowerCase()
+            .replace(/\s/g, "")
+            .replace(/^\w/, (c) => c.toUpperCase());
+
+          //Output transcript
+          heardOutput.textContent = `Heard: ${transcript}`;
+
+          //Check if transcript is valid element
+          if (elements[transcript]) {
+            const elementObj = elements[transcript];
+
+            //Output element
+            elementName.textContent = transcript;
+            elementAbbr.textContent = elementObj.abbreviation;
+            elementNum.textContent = elementObj.atomicNumber;
+            elementWeight.textContent = elementObj.atomicWeight;
+            elementSquare.style.backgroundColor = elementObj.color;
+          }
+        });
+
+        //Restart speech recognition after user has finished talking
+        recognition.addEventListener("end", recognition.start);
+      });
+      //# sourceURL=pen.js
+    </script>
+  </body>
+</html>
