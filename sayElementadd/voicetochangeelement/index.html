@@ -29,8 +29,8 @@
 
       .element {
         font-size: 50px;
-        background-color: #add8e6;
-        border: 2px solid #111;
+        /* background-color: #add8e6; */
+        /* border: 2px solid #111; */
         /* border-radius: 0.4em; */
         padding: 10px;
         margin-bottom: 0.4em;
@@ -74,7 +74,9 @@
       .pp_wprapper {
         width: 300px;
         height: 250px;
-        background-color: tomato;
+        /* background-color: tomato; */
+        /* background-image: url("./VoiceInput-1.jpg"); */
+        background-image: url("./Assets/bg.jpg");
       }
       .h1 {
         position: absolute;
@@ -82,18 +84,56 @@
         left: 55px;
       }
       #click {
-        position: absolute;
+        /* position: absolute;
         bottom: 22px;
         left: 103px;
-        border-radius: none;
+        border-radius: none; */
       }
       #click:focus {
-        color: tomato;
-        background-color: purple;
+        /* color: tomato;
+        background-color: purple; */
       }
-      .button {
-        font-size: 20px;
-        margin: 10px 20px;
+
+      .micbtn {
+        position: absolute;
+        top: 152px;
+        left: 112px;
+        width: 75px;
+        height: 75px;
+        cursor: pointer;
+      }
+      .larrow {
+        position: absolute;
+        top: 180px;
+        left: 90px;
+        width: 17px;
+        height: 16px;
+      }
+      .rarrow {
+        position: absolute;
+        top: 180px;
+        left: 193px;
+        width: 17px;
+        height: 16px;
+      }
+      .micbtnincorrect {
+        position: absolute;
+        top: 159px;
+        left: 123px;
+        width: 54px;
+        height: 54px;
+        cursor: pointer;
+      }
+      .micbtncorrect {
+        position: absolute;
+        top: 159px;
+        left: 123px;
+        width: 54px;
+        height: 54px;
+        cursor: pointer;
+      }
+      .hidden {
+        display: none;
       }
     </style>
 
@@ -111,23 +151,23 @@
   <body translate="yes">
     <div class="pp_wprapper">
       <div class="h1">
-        <h1>Say Element:</h1>
-      </div>
-      <div class="element">
-        <p class="element-symbol">
-          <span class="element-abbr">নিরাপদ পানি</span>
-
-          <!-- <sup class="element-atomic-weight">4</sup> -->
-          <!-- <sub class="element-atomic-number">2</sub> -->
-
-          <!-- <button id="click">click</button> -->
-        </p>
-
-        <p class="element-name">Nirapodpani</p>
+        <!-- <h1>Say Element:</h1> -->
       </div>
 
-      <button id="click"><span class="button">click</span></button>
-      <!-- <div class="heard-output">Heard: nirapodpani</div> -->
+      <div>
+        <img class="larrow" src="./assets/larrow.png" alt="" />
+        <img class="micbtncorrect hidden" src="./assets/correct.png" alt="" />
+        <img id="click" class="micbtn" src="./assets/micbtn.png" alt="" />
+        <img
+          class="micbtnincorrect hidden"
+          src="./assets/incorrect.png"
+          alt=""
+        />
+
+        <img class="rarrow" src="./assets/rarrow.png" alt="" />
+
+        <img class="errmsg hidden" src="./assets/errmsg.png" alt="" />
+      </div>
     </div>
 
     <script src="./script.js"></script>
@@ -146,9 +186,16 @@
           elementNum = document.querySelector(".element-atomic-number"),
           elementWeight = document.querySelector(".element-atomic-weight"),
           heardOutput = document.querySelector(".heard-output");
+
+        larrow = document.querySelector(".larrow");
+        rarrow = document.querySelector(".rarrow");
+        micbtncorrect = document.querySelector(".micbtncorrect");
+        micbtnincorrect = document.querySelector(".micbtnincorrect");
+        errmsg = document.querySelector(".errmsg");
+
         let clickVoic = document.getElementById("click");
 
-        let arya = [
+        let elements = [
           "hello",
           "nirapodpani",
           "nirafodpani",
@@ -183,9 +230,13 @@
           "needapotpani",
           "bahutpani",
         ];
-        //Start speech recognition
-        // recognition.lang = "bn";
-        clickVoic.onclick = () => recognition.start();
+
+        clickVoic.addEventListener("click", () => {
+          recognition.start();
+          micbtncorrect.classList.remove("hidden");
+          larrow.classList.add("hidden");
+          rarrow.classList.add("hidden");
+        });
 
         //Listen for when the user finishes talking
         recognition.addEventListener("result", (e) => {
@@ -196,24 +247,17 @@
             .replace(/^\w/, (c) => c.toLowerCase());
 
           //Output transcript
-          // let a = (heardOutput.textContent = `Heard: ${transcript}`);
-          //Check if transcript is valid element
-          if (arya.includes(transcript)) {
-            //Output element
-            elementName.textContent = "Thanks for your answer";
-            // elementAbbr.textContent = elementObj.abbreviation;
-            // elementNum.textContent = elementObj.atomicNumber;
-            // elementWeight.textContent = elementObj.atomicWeight;
-            elementAbbr.textContent = "Found";
 
-            elementSquare.style.backgroundColor = "#800";
+          if (elements.includes(transcript)) {
+            window.location = "tel:+8801234567891";
+
+            // auto click on the button
+
             recognition.stop();
           } else {
-            elementName.textContent = "Not Found , try again";
-            elementAbbr.textContent = "Not Found, try again";
-            // elementNum.textContent = "Not Found, try again";
-            // elementWeight.textContent = "Not Found, try again";
-            elementSquare.style.backgroundColor = "#fff";
+            micbtnincorrect.classList.remove("hidden");
+            larrow.classList.remove("hidden");
+            rarrow.classList.remove("hidden");
             setTimeout(function () {
               recognition.stop();
             }, 4000);
