@@ -83,16 +83,6 @@
         top: 19px;
         left: 55px;
       }
-      #click {
-        /* position: absolute;
-        bottom: 22px;
-        left: 103px;
-        border-radius: none; */
-      }
-      #click:focus {
-        /* color: tomato;
-        background-color: purple; */
-      }
 
       .micbtn {
         position: absolute;
@@ -150,27 +140,20 @@
 
   <body translate="yes">
     <div class="pp_wprapper">
-      <div class="h1">
-        <!-- <h1>Say Element:</h1> -->
-      </div>
+      <img class="larrow" src="./assets/larrow.png" alt="" />
+      <img class="micbtncorrect hidden" src="./assets/correct.png" alt="" />
 
-      <div>
-        <img class="larrow" src="./assets/larrow.png" alt="" />
-        <img class="micbtncorrect hidden" src="./assets/correct.png" alt="" />
-        <img id="click" class="micbtn" src="./assets/micbtn.png" alt="" />
-        <img
-          class="micbtnincorrect hidden"
-          src="./assets/incorrect.png"
-          alt=""
-        />
+      <img id="click" class="micbtn" src="./assets/micbtn.png" alt="" />
+      <img class="micbtnincorrect hidden" src="./assets/incorrect.png" alt="" />
 
-        <img class="rarrow" src="./assets/rarrow.png" alt="" />
+      <img class="rarrow" src="./assets/rarrow.png" alt="" />
 
-        <img class="errmsg hidden" src="./assets/errmsg.png" alt="" />
-      </div>
+      <img class="errmsg hidden" src="./assets/errmsg.png" alt="" />
     </div>
 
-    <script src="./script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+
+    <!-- <script src="./script.js"></script> -->
 
     <script id="rendered-js">
       //DOM load event
@@ -196,7 +179,6 @@
         let clickVoic = document.getElementById("click");
 
         let elements = [
-          "hello",
           "nirapodpani",
           "nirafodpani",
           "niraponhani",
@@ -231,6 +213,7 @@
           "bahutpani",
         ];
 
+        
         clickVoic.addEventListener("click", () => {
           recognition.start();
           micbtncorrect.classList.remove("hidden");
@@ -250,11 +233,10 @@
 
           if (elements.includes(transcript)) {
             window.location = "tel:+8801234567891";
-
             // auto click on the button
-
             recognition.stop();
           } else {
+            micbtncorrect.classList.add("hidden");
             micbtnincorrect.classList.remove("hidden");
             larrow.classList.remove("hidden");
             rarrow.classList.remove("hidden");
@@ -264,6 +246,11 @@
           }
         });
       });
+
+      gsap
+        .timeline({ repeat: -1, ease: "none", yoyo: true })
+        .to(".larrow", { x: 12 })
+        .to(".rarrow", { x: -12 }, "<");
     </script>
   </body>
 </html>
