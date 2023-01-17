@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+img {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+}
+.banner {
+  /* margin: auto; */
+  width: 970px;
+  position: relative;
+  height: 90px;
+}
+
+.banner__part {
+  margin: 0;
+  padding: 0;
+  background-image: url("images/97090.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.flower {
+  background-image: url("images/Artboard4copy10090.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100px;
+  height: 100%;
+  display: block;
+}
+
+.shop__now__btn {
+  margin-top: 40px;
+}
+.shop__now__btn img {
+  width: 155px;
+  cursor: pointer;
+}
+
+.section3 {
+  margin-right: 5px;
+}
+.logo {
+  width: 76px;
+}
+/* animation */
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.flow {
+  animation: 3s scale linear;
+}
+
+.section2 img {
+  animation: wiggle 2s linear infinite;
+  animation-fill-mode: forwards;
+}
+/* opacity */
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* rotate */
+@keyframes rotate {
+  /* rotate */
+  0% {
+    transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(60deg);
+  }
+}
+/* zoom in zomm out */
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0.3);
+  }
+  75% {
+    transform: scale(0.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes logo {
+  50% {
+    transform: translateY(5px);
+  }
+}
+/* button */
+@keyframes wiggle {
+  0%,
+  7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-7deg);
+  }
+  20% {
+    transform: rotateZ(6deg);
+  }
+  25% {
+    transform: rotateZ(-6deg);
+  }
+  30% {
+    transform: rotateZ(4deg);
+  }
+  35% {
+    transform: rotateZ(-2deg);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0);
+  }
+}

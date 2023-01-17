@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+.banner-container {
+  width: 300px;
+  height: 250px;
+  position: relative;
+}
+.banner-bg {
+  background: url("images/Artboard2copy3.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 300px;
+  height: 250px;
+  position: relative;
+}
+
+.parent-container {
+  position: absolute;
+  top: 56%;
+  right: 18%;
+  transform: translate(50%, -50%);
+  display: flex;
+  flex-direction: column;
+}
+.logo-wrapper {
+  text-align: center;
+}
+.button-image-wrapper img {
+  width: 97px;
+  height: 26px;
+  padding: 10px 0px;
+}
+.image-wrapper img {
+  width: 90px;
+  height: 55px;
+}
+.logo-wrapper img {
+  width: 70px;
+  height: 70px;
+}
+
+.button-image-wrapper {
+  animation: swing ease-in-out 1s infinite alternate;
+  transform-origin: center -20px;
+  float: left;
+}
+@keyframes swing {
+  0% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(-3deg);
+  }
+}
