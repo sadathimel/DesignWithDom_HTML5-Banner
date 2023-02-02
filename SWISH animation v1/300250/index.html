@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SWISH</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .pp_wrapperhimel {
+        width: 300px;
+        height: 250px;
+        /* background-image: url("./bg.jpg"); */
+        background-image: url("./300250.jpg");
+        background-repeat: no-repeat;
+        position: relative;
+      }
+      .absolute {
+        position: absolute;
+      }
+      .pp_t1 {
+        top: 45px;
+        left: 87px;
+        width: 114px;
+        height: 13px;
+      }
+      .pp_t2 {
+        top: 65px;
+        left: 103px;
+        width: 82px;
+        height: 15px;
+      }
+      .hidden {
+        display: none;
+      }
+
+      .puff-in-center {
+        -webkit-animation: puff-in-center 0.7s
+          cubic-bezier(0.47, 0, 0.745, 0.715) both;
+        animation: puff-in-center 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+      }
+
+      @-webkit-keyframes puff-in-center {
+        0% {
+          -webkit-transform: scale(2);
+          transform: scale(2);
+          -webkit-filter: blur(4px);
+          filter: blur(4px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          -webkit-filter: blur(0px);
+          filter: blur(0px);
+          opacity: 1;
+        }
+      }
+      @keyframes puff-in-center {
+        0% {
+          -webkit-transform: scale(2);
+          transform: scale(2);
+          -webkit-filter: blur(4px);
+          filter: blur(4px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          -webkit-filter: blur(0px);
+          filter: blur(0px);
+          opacity: 1;
+        }
+      }
+
+      .slide-in-bottom {
+        -webkit-animation: slide-in-bottom 1s
+          cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        animation: slide-in-bottom 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      }
+
+      @-webkit-keyframes slide-in-bottom {
+        0% {
+          -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+          opacity: 0;
+        }
+        50% {
+          -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      @keyframes slide-in-bottom {
+        0% {
+          -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+          opacity: 0;
+        }
+        50% {
+          -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="{CLICK_MACRO}" target="_blank">
+      <div class="pp_wrapperhimel">
+        <img
+          class="pp_t1 absolute puff-in-center hidden"
+          src="./t1.png"
+          alt=""
+        />
+        <img
+          class="pp_t2 absolute slide-in-bottom hidden"
+          src="./t2.png"
+          alt=""
+        />
+      </div>
+    </a>
+    <script>
+      var pp_t1 = document.querySelector(".pp_t1");
+      var pp_t2 = document.querySelector(".pp_t2");
+      setTimeout(animate, false);
+      function animate() {
+        pp_t1.classList.remove("hidden");
+        pp_t2.classList.remove("hidden");
+        setTimeout(function () {
+          pp_t1.classList.add("hidden");
+          pp_t2.classList.add("hidden");
+          setTimeout(animate, 500);
+        }, 3500);
+      }
+    </script>
+  </body>
+</html>
