@@ -49,8 +49,8 @@
         position: relative;
         transform-origin: 2px 2px;
         transform: rotateZ(-90deg);
-        -webkit-animation: book var(--duration) ease infinite;
-        animation: book var(--duration) ease infinite;
+        -webkit-animation: book var(--duration) ease;
+        animation: book var(--duration) ease;
       }
       .book .inner .left,
       .book .inner .right {
@@ -76,15 +76,15 @@
         right: 28px;
         transform-origin: 58px 2px;
         transform: rotateZ(90deg);
-        -webkit-animation: left var(--duration) ease infinite;
-        animation: left var(--duration) ease infinite;
+        -webkit-animation: left var(--duration) ease;
+        animation: left var(--duration) ease;
       }
       .book .inner .right {
         left: 28px;
         transform-origin: 2px 2px;
         transform: rotateZ(-90deg);
-        -webkit-animation: right var(--duration) ease infinite;
-        animation: right var(--duration) ease infinite;
+        -webkit-animation: right var(--duration) ease;
+        animation: right var(--duration) ease;
       }
       .book .inner .middle {
         width: 32px;
@@ -116,8 +116,8 @@
         animation-duration: var(--duration);
         -webkit-animation-timing-function: ease;
         animation-timing-function: ease;
-        -webkit-animation-iteration-count: infinite;
-        animation-iteration-count: infinite;
+        -webkit-animation-iteration-count: ;
+        animation-iteration-count: ;
       }
       .book ul li:nth-child(0) {
         -webkit-animation-name: page-0;
@@ -665,13 +665,13 @@
         54% {
           transform: rotateZ(90deg);
         }
-        60%,
+        /* 60%,
         90% {
           transform: rotateZ(0deg);
         }
         96% {
           transform: rotateZ(90deg);
-        }
+        } */
       }
       @keyframes left {
         4% {
@@ -800,12 +800,16 @@
         /* background-image: url("slide1.jpg"); */
         width: 300px;
         height: 250px;
+        background-repeat: no-repeat;
+        position: absolute;
       }
       .pp_slide2 {
-        /* background-image: url("./slide2/bg2.jpg"); */
-        background-image: url("slide2.jpg");
+        background-image: url("./slide2/bg2.jpg");
+        /* background-image: url("slide2.jpg"); */
         width: 300px;
         height: 250px;
+        background-repeat: no-repeat;
+        position: absolute;
       }
 
       .dokan {
@@ -848,7 +852,6 @@
         position: absolute;
         top: 47px;
         left: 124px;
-        letter-spacing: 2px;
         font-family: "Baloo Da 2", cursive;
         z-index: 0;
         font-size: 33px;
@@ -859,12 +862,15 @@
         animation-delay: 0s;
         font-weight: 600;
       }
+      .opacityzero {
+        opacity: 0;
+      }
     </style>
   </head>
 
   <body>
     <div class="pp_wrapperhimel">
-      <div class="pp_slide1">
+      <div class="pp_slide1 hidden">
         <div class="book element_1">
           <div class="inner">
             <div class="left"></div>
@@ -897,10 +903,9 @@
           src="./slide1/amountbase.png"
           alt=""
         />
-
-        <!-- <div class="counter"></div> -->
         <div id="number_up" class="number_up"></div>
       </div>
+
       <div class="pp_slide2 hidden">
         <img class="dokan" src="./slide2/dokan.png" alt="dokan" />
         <img
@@ -912,42 +917,50 @@
       </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
-      var finalValue = 150;
+      var slide1 = document.querySelector(".pp_slide1");
+      var slide2 = document.querySelector(".pp_slide2");
+
+
+      var slide1 = document.querySelector(".pp_slide1");
+      var slide2 = document.querySelector(".pp_slide2");
+      
+    
+        
+        setTimeout(slide2Show, false)
+    upValue()
+        slide1.classList.remove("hidden");
+        function slide2Show() {
+        setTimeout(() => {
+              slide1.classList.add("hidden");
+              slide2.classList.remove("hidden");
+              setTimeout(() => {
+                slide2.classList.add("hidden");
+                slide1.classList.remove("hidden");
+                setTimeout(upValue, false);
+                setTimeout(slide2Show, false);
+              }, 3000)
+            }, 3000);
+
+            upValue()
+
+        }
+          
+            
+     
+
+      var finalValue = 0;
       var startValue = 0;
       var time;
       var x;
       var numString = "";
       var valueLength = translteNum(finalValue.toString().length);
 
-      //to increase speed, reduce the value of "i"
-      for (var i = 10; i < valueLength; i++) {
-        numString += "1";
-      }
-      x = Number(numString);
-      function upValue() {
-        if (startValue <= finalValue) {
-          setTimeout(function () {
-            document.getElementById("number_up").innerText =
-              translteNum(startValue);
-            console.log(startValue);
-            if (x > 0) {
-              startValue = startValue + x;
-              time = 1;
-            } else {
-              startValue = startValue + 1;
-              time = 9;
-            }
-            upValue();
-          }, time);
-        } else {
-          setTimeout(function () {
-            document.getElementById("number_up").innerText =
-              translteNum(finalValue);
-          }, time);
-        }
-      }
-      upValue();
+     
+
+      
+     
 
       function translteNum(num_str) {
         var bengali = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
@@ -964,6 +977,28 @@
           });
         return changed_nun;
       }
+
+
+
+    function upValue() {
+        if (startValue <= 150) {
+          setTimeout(function () {
+            document.getElementById("number_up").innerText =
+              translteNum(startValue);
+            console.log(startValue);
+            if (x > 0) {
+              startValue = startValue + x;
+              time = 1;
+            } else {
+              startValue = startValue + 1;
+              time = 12;
+            }
+            upValue();
+          }, time);
+        } 
+      }
+
+
     </script>
   </body>
 </html>
