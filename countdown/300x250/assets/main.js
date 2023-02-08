@@ -805,9 +805,9 @@ function handleTickInit(tick) {
   setTimeout(updateWCTime, false);
 }
 
-// function translteNum(num_str) {
-//   var bengali = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
-//   var changed_nun = "";
-//   num_str.toString().split("").forEach((l) => {if (isNaN(l)) { changed_nun += l; } else { changed_nun += bengali[l];}});
-//   return changed_nun;
-// }
+function translteNum(num_str) {
+  var bengali = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+  var changed_nun = "";
+  num_str.toString().split("").forEach((l) => {if (isNaN(l)) { changed_nun += l; } else { changed_nun += bengali[l];}});
+  return changed_nun;
+}
