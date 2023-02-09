@@ -826,6 +826,13 @@
         right: 12px;
         top: 20px;
       }
+      .offerbigger2 {
+        width: 116px;
+        height: 135px;
+        position: absolute;
+        right: 12px;
+        top: 20px;
+      }
 
       .offertext {
         position: absolute;
@@ -864,6 +871,135 @@
       }
       .opacityzero {
         opacity: 0;
+      }
+
+      .slide-in-left {
+        -webkit-animation: slide-in-left 0.8s
+          cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        animation: slide-in-left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        
+      }
+
+      @-webkit-keyframes slide-in-left {
+        0% {
+          -webkit-transform: translateX(-1000px);
+          transform: translateX(-1000px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      @keyframes slide-in-left {
+        0% {
+          -webkit-transform: translateX(-1000px);
+          transform: translateX(-1000px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .slide-in-top {
+        -webkit-animation: slide-in-top 0.8s
+          cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        animation: slide-in-top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        -webkit-animation: scale-in-center 0.8s
+          cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        animation: scale-in-center 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        
+      }
+
+      @-webkit-keyframes slide-in-top {
+        0% {
+          -webkit-transform: translateY(-1000px);
+          transform: translateY(-1000px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      @keyframes slide-in-top {
+        0% {
+          -webkit-transform: translateY(-1000px);
+          transform: translateY(-1000px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .scale-in-center {
+        -webkit-animation: scale-in-center 1s steps(6, start) infinite both;
+        animation: scale-in-center 1s steps(6, start) infinite both;
+      }
+
+      @-webkit-keyframes scale-in-center {
+        50% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          opacity: 1;
+        }
+        40% {
+          -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+          opacity: 1;
+        }
+        30% {
+          -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+          opacity: 1;
+        }
+        40% {
+          -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+          opacity: 1;
+        }
+
+        50% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      @keyframes scale-in-center {
+        50% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          opacity: 1;
+        }
+        40% {
+          -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+          opacity: 1;
+        }
+        30% {
+          -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+          opacity: 1;
+        }
+        40% {
+          -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+          opacity: 1;
+        }
+
+        50% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          opacity: 1;
+        }
       }
     </style>
   </head>
@@ -906,61 +1042,80 @@
         <div id="number_up" class="number_up"></div>
       </div>
 
-      <div class="pp_slide2 hidden">
-        <img class="dokan" src="./slide2/dokan.png" alt="dokan" />
-        <img
-          class="offerbigger"
-          src="./slide2/offerbigger.png"
-          alt="offerbigger"
-        />
-        <img class="offertext" src="./slide2/offertext.png" alt="offertext" />
-      </div>
+      <a href="{CLICK_MACRO}" target="_blank">
+        <div class="pp_slide2 hidden">
+          <!-- class="dokan slide-in-left" -->
+          <img
+            class="dokan slide-in-left"
+            src="./slide2/dokan.png"
+            alt="dokan"
+          />
+          <!-- class="offerbigger scale-in-center" -->
+          <img
+            class="offerbigger slide-in-top"
+            src="./slide2/offerbigger.png"
+            alt="offerbigger"
+          />
+          <img class="offertext" src="./slide2/offertext.png" alt="offertext" />
+        </div>
+      </a>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
       var slide1 = document.querySelector(".pp_slide1");
       var slide2 = document.querySelector(".pp_slide2");
 
+      var offerbigger = document.querySelector(".offerbigger");
+      var offerbigger2 = document.querySelector(".offerbigger2");
 
-      var slide1 = document.querySelector(".pp_slide1");
-      var slide2 = document.querySelector(".pp_slide2");
-      
-    
-        
-        setTimeout(slide2Show, false)
-    upValue()
-        slide1.classList.remove("hidden");
-        function slide2Show() {
+
+
+      setTimeout(slide2Show, false);
+      setTimeout(upValue, false);
+      slide1.classList.remove("hidden");
+    //   offerbigger.classList.add("hidden");
+    //  offerbigger2.classList.remove("hidden");
+      function slide2Show() {
         setTimeout(() => {
-              slide1.classList.add("hidden");
-              slide2.classList.remove("hidden");
-              setTimeout(() => {
-                slide2.classList.add("hidden");
-                slide1.classList.remove("hidden");
-                setTimeout(upValue, false);
-                setTimeout(slide2Show, false);
-              }, 3000)
-            }, 3000);
-
-            upValue()
-
-        }
-          
-            
-     
-
+    offerbigger.classList.remove("hidden");
+          slide1.classList.add("hidden");
+          slide2.classList.remove("hidden");
+          setTimeout(() => {
+            slide2.classList.add("hidden");
+            slide1.classList.remove("hidden");
+            // offerbigger.classList.remove("scale-in-center");
+            setTimeout(upValue, false);
+            setTimeout(slide2Show, false);
+          }, 5000);
+        }, 3500);
+      }
       var finalValue = 0;
       var startValue = 0;
       var time;
       var x;
       var numString = "";
       var valueLength = translteNum(finalValue.toString().length);
+      function upValue() {
+        // console.log(startValue);
+        if (startValue <= 150) {
+          setTimeout(function () {
+            document.getElementById("number_up").innerText =
+              translteNum(startValue);
+            // console.log(startValue);
+            if (x > 0) {
+              startValue = startValue + x;
+              time = 1;
+            } else {
+              startValue = startValue + 1;
+              time = 12;
+            }
 
-     
-
-      
-     
+            upValue();
+          }, time);
+        } else {
+          startValue = 0;
+        }
+      }
 
       function translteNum(num_str) {
         var bengali = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
@@ -977,28 +1132,6 @@
           });
         return changed_nun;
       }
-
-
-
-    function upValue() {
-        if (startValue <= 150) {
-          setTimeout(function () {
-            document.getElementById("number_up").innerText =
-              translteNum(startValue);
-            console.log(startValue);
-            if (x > 0) {
-              startValue = startValue + x;
-              time = 1;
-            } else {
-              startValue = startValue + 1;
-              time = 12;
-            }
-            upValue();
-          }, time);
-        } 
-      }
-
-
     </script>
   </body>
 </html>
