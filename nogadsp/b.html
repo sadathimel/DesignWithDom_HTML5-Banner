@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="ad.size" content="width=300,height=250" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Nagad Spinner</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        user-select: none;
+      }
+      body,html {width: 300px;height: 250px;}
+      .ad_box {
+        height: 250px;
+        width: 300px;
+        cursor: pointer;
+        touch-action: auto;
+        overflow: hidden;
+        background-color: #f8f7f2;
+        background-size: 100%;
+        position: relative;
+      }
+
+      .wheel_board_area{
+        width: 300px;
+        height: 250px;
+        left: 0;
+        top: 0;
+      }
+
+      .wheel_board {
+        top: 10px;
+        left: 52px;
+        transition: transform 5s cubic-bezier(0.5, 0.1, 0.15, 1);
+        transform: rotate(0deg);
+        z-index: 99;
+      }
+
+      .wheel_pag {
+        position: absolute;
+        top: 5px;
+        left: 130px;
+        z-index: 100;
+      }
+
+      .offer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999;
+      }
+      .offer_button {
+        position: absolute;
+        bottom: 5px;
+        left: 0px;
+        z-index: 20;
+      }
+
+      .logo {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .zoomIn {
+        animation-name: zoomIn;
+        animation-duration: 0.3s;
+        animation-fill-mode: both;
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(0);
+        }
+      }
+
+      @keyframes run {
+        0% {right: 130px;}
+        50% {
+          right: 130px;
+          transform: scale3d(0.5, 0.5, 1);
+        }
+        100% {right: 130px;}
+      }
+      .overlay {
+        left: 0px;
+        top: 48px;
+        z-index: 998;
+        background-image: url(//ms.purplepatch.online/nagad/nagadspinwheel/slide1/bg.jpg);
+      }
+      .overlayimg {
+        width: 300px;
+        height: 250px;
+        top: -45px;
+      }
+      .element_1 {
+        width: 187px;
+        height: 187px;
+        top: 28px;
+        left: 4px;
+        position: absolute;
+      }
+      .element_9 {
+        width: 300px;
+        height: 250px px;
+        top: 38px;
+        left: 3px;
+        position: absolute;
+        z-index: 9;
+      }
+      .element_10 {
+        width: 166px;
+        height: 27px;
+        top: -3px;
+        left: 15px;
+        position: absolute;
+      }
+      .element_2 {
+        width: 187px;
+        height: 187px;
+        top: 32px;
+        left: 11px;
+        position: absolute;
+      }
+      .logo {
+        width: 82px;
+        height: 34px;
+        z-index: 99999;
+        left: 208px;
+        top: -42px;
+      }
+      .absolute {position: absolute;}
+      .element_7 {
+        width: 64px;
+        height: 24px;
+        bottom: -5px;
+        left: 121px;
+      }
+      .element_8 {
+        top: 110px;
+        right: 120px;
+        z-index: 99;
+      }
+      .element_17 {
+        width: 33px;
+        height: 8px;
+        bottom: 9px;
+        right: 17px;
+      }
+      .element_18 {
+        width: 109px;
+        height: 90px;
+        top: 109px;
+        right: 21px;
+        z-index: 99;
+      }
+      .element_19 {
+        width: 88px;
+        height: 20px;
+        bottom: 25px;
+        right: 31px;
+        z-index: 99;
+      }
+      .element_20 {
+        top: 21px;
+        right: 8px;
+        width: 154px;
+        height: 91px;
+      }
+      .element_21 {
+        top: 25px;
+        left: 0px;
+        z-index: 99;
+        width: 193px;
+        height: 225px;
+      }
+
+      .slide_3 {
+        background-image: url(//ms.purplepatch.online/nagad/nagadspinwheel/slide3/bgv3.jpg);
+        width: 300px;
+        height: 250px;
+      }
+      @keyframes pulse {
+        0% {transform: scaleX(1);}
+        50% {transform: scale3d(1.15, 1.15, 1.15);}
+        100% { transform: scaleX(1);}
+      }
+
+      .pulse {
+        animation-name: pulse;
+        animation-duration: 2s;
+      }
+
+      .loop {animation-iteration-count: infinite;}
+
+      .bounceIn {
+        animation-name: bounceIn;
+        animation-duration: 1.25s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+      @keyframes bounceIn {        
+        0% {
+          opacity: 0;
+          -webkit-transform: scale3d(0.3, 0.3, 0.3);
+          transform: scale3d(0.3, 0.3, 0.3);
+        }
+        20% {
+          -webkit-transform: scale3d(1.1, 1.1, 1.1);
+          transform: scale3d(1.1, 1.1, 1.1);
+        }
+        40% {
+          -webkit-transform: scale3d(0.9, 0.9, 0.9);
+          transform: scale3d(0.9, 0.9, 0.9);
+        }
+        60% {
+          opacity: 1;
+          -webkit-transform: scale3d(1.03, 1.03, 1.03);
+          transform: scale3d(1.03, 1.03, 1.03);
+        }
+        80% {
+          -webkit-transform: scale3d(0.97, 0.97, 0.97);
+          transform: scale3d(0.97, 0.97, 0.97);
+        }
+        10% {
+          opacity: 1;
+          -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ad_box">
+      <div class="wheel_board_area absolute">
+        <div class="element_1">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/images/spinner.png" class="wheel_board absolute" />
+        </div>
+        <div class="element_9">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide1/shadow.png" class="wheel_board absolute" />
+        </div>
+        <div class="element_10">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide1/text1.png" class="wheel_board absolute" />
+        </div>
+        <div class="element_7 absolute">
+          <img src="images/btn1.png" class="offer_button pulse loop" />
+        </div>
+      </div>
+      
+      <div class="element_2">
+        <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide1/selector-pin.png" class="wheel_pag" />
+      </div>
+
+      <div class="overlay absolute hidden">
+        <div class="logo hidden absolute">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide2/nagadlogoright.png" alt="" />
+        </div>
+        <div class="overlayimg hidden absolute">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide1/bg.jpg" alt="" />
+        </div>
+        <div class="overlayimg hidden absolute">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide1/bg.jpg" alt="" />
+        </div>
+        <div class="element_3 absolute hidden">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide2/1.png" class="offer" />
+        </div>
+        <div class="element_4 absolute hidden">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide2/2.png" class="offer" />
+        </div>
+        <div class="element_5 absolute hidden">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide2/3.png" class="offer" />
+        </div>
+        <div class="element_6 absolute hidden">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide2/4.png" class="offer" />
+        </div>
+        <div class="element_11 absolute hidden">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide2/5.png" class="offer" />
+        </div>
+        <div class="element_12 absolute hidden">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide2/6.png" class="offer" />
+        </div>
+        <div class="element_13 absolute hidden">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide2/7.png" class="offer" />
+        </div>
+        <div class="element_14 absolute hidden">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide2/8.png" class="offer" />
+        </div>
+        <div class="element_15 absolute hidden">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide2/9.png" class="offer" />
+        </div>
+      </div>
+      
+
+      <div class="slide_3 absolute hidden">
+        <div class="element_17 absolute">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide3/condition.png" class="offer" />
+        </div>
+        <div class="element_18 absolute">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide3/Copy.png" class="offer" />
+        </div>
+        <div class="element_19 absolute bounceIn">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide3/cta.png" class="offer" />
+        </div>
+        <div class="element_20 absolute">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide3/Layer 8.png" class="offer" />
+        </div>
+        <div class="element_21 absolute">
+          <img src="//ms.purplepatch.online/nagad/nagadspinwheel/slide3/Model.png" class="offer" />
+        </div>
+      </div>
+    </div>
+    <script>
+      var wheel_board_area = document.querySelector(".wheel_board_area");
+      var wheelBoard = document.querySelector(".wheel_board");
+      var random = 0;
+
+      let element_1 = document.querySelector(".element_1");
+      let element_9 = document.querySelector(".element_9");
+      let element_10 = document.querySelector(".element_10");
+      let element_2 = document.querySelector(".element_2");
+      let element_7 = document.querySelector(".element_7");
+
+      let element3 = document.querySelector(".element_3");
+      let element4 = document.querySelector(".element_4");
+      let element5 = document.querySelector(".element_5");
+      let element6 = document.querySelector(".element_6");
+      let element11 = document.querySelector(".element_11");
+      let element12 = document.querySelector(".element_12");
+      let element13 = document.querySelector(".element_13");
+      let element14 = document.querySelector(".element_14");
+      let element15 = document.querySelector(".element_15");
+      let element16 = document.querySelector(".element_16");
+      let slide2 = document.querySelector(".slide2");
+      let overlayimg = document.querySelector(".overlayimg");
+      let logo = document.querySelector(".logo");
+      let slide_3 = document.querySelector(".slide_3");
+      let overlay = document.querySelector(".overlay");
+      let offer = document.querySelector(".offer");
+
+      var num = 0;
+      function spin_wheel() {
+        num = Math.floor(Math.random() * 9 ) + 1;
+        random += 3600;
+        var value = random + [36, 72, 108, 144, 180, 216, 252, 288, 324, 360][num];
+        wheelBoard.style.transform = "rotate(" + value + "deg)";
+        luckyDraw(num);
+      }
+
+      wheel_board_area.addEventListener("click", spin_wheel);
+
+      function loadGb(value=1) {
+        value.style.width = "300px";
+        value.style.height = "250px";
+
+        setTimeout(() => {
+          overlayimg.classList.remove("hidden");
+          logo.classList.remove("hidden");
+
+          overlay.className = overlay.className.replace("hidden", "zoomIn");
+          value.className = value.className.replace("hidden", "zoomIn");
+          setTimeout(() => {
+            element_1.classList.add("hidden");
+            element_9.classList.add("hidden");
+            element_10.classList.add("hidden");
+            element_2.classList.add("hidden");
+            overlay.classList.add("hidden");
+            slide_3.classList.remove("hidden");
+            element_7.classList.add("hidden");
+          }, 2000);
+        }, 8000);
+      }
+
+      function luckyDraw(value) {
+        switch (value) {
+          case 1:loadGb(element3);break;
+          case 2:loadGb(element4);break;
+          case 3:loadGb(element5);break;
+          case 4:loadGb(element6);break;
+          case 5:loadGb(element11);break;
+          case 6:loadGb(element12);break;
+          case 7:loadGb(element13);break;
+          case 8:loadGb(element14);break;
+          case 9:loadGb(element15);break;
+          case 10:loadGb(element16);break;
+          default:console.log("try again!"); break;
+        }
+      }
+
+      offer.addEventListener('click',function(){
+        window.open("{CLICK_MACRO}", "_blank");
+      });
+
+    </script>
+  </body>
+</html>
