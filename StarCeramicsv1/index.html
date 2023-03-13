@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Star Ceramics</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .pp_wrapper {
+        width: 300px;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+      }
+      .slider_1 {
+        width: 300px;
+        height: 250px;
+        position: relative;
+      }
+      .ele_1 {
+        width: 47px;
+        height: 70px;
+        position: absolute;
+        top: 133px;
+        left: 21px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+
+      .ele_2 {
+        width: 47px;
+        height: 70px;
+        position: absolute;
+        top: 133px;
+        left: 91px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+      .ele_3 {
+        width: 47px;
+        height: 70px;
+        position: absolute;
+        top: 133px;
+        left: 162px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+      .ele_4 {
+        width: 47px;
+        height: 70px;
+        position: absolute;
+        top: 133px;
+        left: 232px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+      .ele_5 {
+        width: 300px;
+        height: 178px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+        background-repeat: no-repeat;
+      }
+      .ele_6 {
+        width: 300px;
+        height: 72px;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        background-repeat: no-repeat;
+        z-index: -1;
+      }
+      .ele_7 {
+        width: 118px;
+        height: 25px;
+        position: absolute;
+        bottom: 11px;
+        left: 91px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+      .ele_8 {
+        width: 300px;
+        height: 178px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+        background-repeat: no-repeat;
+      }
+      .ele_9 {
+        width: 300px;
+        height: 178px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+        background-repeat: no-repeat;
+      }
+      .ele_10 {
+        width: 300px;
+        height: 178px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+        background-repeat: no-repeat;
+      }
+      .ele_11 {
+        width: 300px;
+        height: 178px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+        background-repeat: no-repeat;
+      }
+      .ele_12 {
+        width: 280px;
+        height: 62px;
+        position: absolute;
+        top: 5px;
+        left: 0px;
+        background-repeat: no-repeat;
+      }
+      .hidden {
+        display: none;
+      }
+
+      .ele_1:hover {
+        transform: scale(1.1);
+      }
+      .ele_2:hover {
+        transform: scale(1.1);
+      }
+      .ele_3:hover {
+        transform: scale(1.1);
+      }
+      .ele_4:hover {
+        transform: scale(1.1);
+      }
+      .ele_7:hover {
+        transform: scale(1.1);
+      }
+      .pluse {
+        background: rgb(212, 212, 26);
+        box-shadow: 0 0 0 0 rgb(204, 221, 17);
+        animation: pulse-white 2s infinite;
+      }
+
+      @keyframes pulse-white {
+        0% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(198, 210, 18, 0.7);
+        }
+
+        70% {
+          transform: scale(1);
+          box-shadow: 0 0 0 10px rgba(239, 227, 13, 0);
+        }
+
+        100% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(191, 181, 46, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pp_wrapper">
+      <div class="slider_1">
+        <div class="ele_1"><img src="./Assets/a.png" alt="" /></div>
+        <div class="ele_2"><img src="./Assets/b.png" alt="" /></div>
+        <div class="ele_3"><img src="./Assets/c.png" alt="" /></div>
+        <div class="ele_4"><img src="./Assets/d.png" alt="" /></div>
+        <div class="ele_5"><img src="./Assets/wall.png" alt="" /></div>
+        <div class="ele_6"><img src="./Assets/bottom.png" alt="" /></div>
+        <div class="ele_7 pluse"><img src="./Assets/btn.png" alt="" /></div>
+      </div>
+      <div class="slide_2">
+        <div class="ele_8 hidden"><img src="./Assets/awall.png" alt="" /></div>
+        <div class="ele_9 hidden"><img src="./Assets/bwall.png" alt="" /></div>
+        <div class="ele_10 hidden"><img src="./Assets/cwall.png" alt="" /></div>
+        <div class="ele_11 hidden"><img src="./Assets/dwall.png" alt="" /></div>
+        <div class="ele_12 hidden"><img src="./Assets/logos.png" alt="" /></div>
+      </div>
+    </div>
+
+    <script>
+      const ele_1 = document.querySelector(".ele_1");
+      const ele_2 = document.querySelector(".ele_2");
+      const ele_3 = document.querySelector(".ele_3");
+      const ele_4 = document.querySelector(".ele_4");
+      const ele_5 = document.querySelector(".ele_5");
+      const ele_6 = document.querySelector(".ele_6");
+      const ele_7 = document.querySelector(".ele_7");
+      const ele_8 = document.querySelector(".ele_8");
+      const ele_9 = document.querySelector(".ele_9");
+      const ele_10 = document.querySelector(".ele_10");
+      const ele_11 = document.querySelector(".ele_11");
+      const ele_12 = document.querySelector(".ele_12");
+      const slide_2 = document.querySelector(".slide_2");
+      const slider_1 = document.querySelector(".slider_1");
+
+      ele_1.addEventListener("click", () => {
+        ele_5.classList.add("hidden");
+        ele_8.classList.remove("hidden");
+        ele_9.classList.add("hidden");
+        ele_10.classList.add("hidden");
+        ele_11.classList.add("hidden");
+        ele_12.classList.remove("hidden");
+      });
+      ele_2.addEventListener("click", () => {
+        ele_5.classList.add("hidden");
+        ele_8.classList.add("hidden");
+        ele_9.classList.remove("hidden");
+        ele_10.classList.add("hidden");
+        ele_11.classList.add("hidden");
+        ele_12.classList.remove("hidden");
+      });
+      ele_3.addEventListener("click", () => {
+        ele_5.classList.add("hidden");
+        ele_8.classList.add("hidden");
+        ele_9.classList.add("hidden");
+        ele_10.classList.remove("hidden");
+        ele_11.classList.add("hidden");
+        ele_12.classList.remove("hidden");
+      });
+      ele_4.addEventListener("click", () => {
+        ele_5.classList.add("hidden");
+        ele_8.classList.add("hidden");
+        ele_9.classList.add("hidden");
+        ele_10.classList.add("hidden");
+        ele_11.classList.remove("hidden");
+        ele_12.classList.remove("hidden");
+      });
+
+      ele_7.addEventListener("click", () => {});
+    </script>
+  </body>
+</html>
