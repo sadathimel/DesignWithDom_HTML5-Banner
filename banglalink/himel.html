@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banglalink</title>
+
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .pp_slide1 {
+        width: 300px;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+        /* background-image: url("./slide1/orangeOverlay.png"); */
+        /* background-image: url("./1.jpg"); */
+      }
+      .slide_1_color {
+        width: 100%;
+        height: 100%;
+        background-color: #ff6b00;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .pp_wrapper {
+        width: 300px;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pp_31 {
+        position: absolute;
+        bottom: 6px;
+        left: 67px;
+        width: 30px;
+        height: 81px;
+        z-index: 0;
+        clip-path: polygon(10% 90%, 90% 90%, 90% 90%, 10% 90%);
+      }
+
+      .pp_35 {
+        position: absolute;
+        bottom: 6px;
+        left: 109px;
+        width: 30px;
+        height: 94px;
+        z-index: 0;
+        clip-path: polygon(10% 90%, 90% 90%, 90% 90%, 10% 90%);
+      }
+
+      .pp_37 {
+        position: absolute;
+        bottom: 6px;
+        left: 151px;
+        width: 30px;
+        height: 105px;
+        z-index: 0;
+        clip-path: polygon(10% 90%, 90% 90%, 90% 90%, 10% 90%);
+      }
+
+      .pp_40 {
+        position: absolute;
+        bottom: 6px;
+        left: 195px;
+        width: 30px;
+        height: 120px;
+        z-index: 0;
+        clip-path: polygon(10% 90%, 90% 90%, 90% 90%, 10% 90%);
+      }
+
+      @keyframes line {
+        0% {
+          clip-path: polygon(
+            0% 96.8%,
+            50.75% 100%,
+            100% 97.05%,
+            100% 96.8%,
+            50.75% 100%,
+            0.02% 97.05%
+          );
+        }
+
+        100% {
+          clip-path: polygon(
+            0% 96.8%,
+            50.75% 100%,
+            100% 97.05%,
+            100% 0%,
+            52% 0%,
+            0% 0%
+          );
+        }
+      }
+
+      .line {
+        animation-name: line;
+        animation-duration: 2s;
+        animation-fill-mode: both;
+        animation-delay: 0.5s;
+      }
+
+      .pp_bllogo {
+        position: absolute;
+        top: 10px;
+        right: 11px;
+        width: 35px;
+        height: 45px;
+        z-index: 2;
+      }
+
+      .pp_numberbase {
+        position: absolute;
+        bottom: 134px;
+        left: 31px;
+        width: 235px;
+        height: 53px;
+        z-index: 0;
+      }
+
+      .pp_slide2 {
+        width: 300px;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+        background-image: url("./slide2/bg.jpg");
+        /* background-image: url("./slide2.jpg"); */
+      }
+
+      .pp_copy {
+        position: absolute;
+        top: 38px;
+        left: 62px;
+        width: 180px;
+        height: 89px;
+        z-index: 0;
+        animation: popup 4.5s linear infinite;
+      }
+      /* @keyframes popup {
+          0% {
+            scale: 10;
+          }
+          50% {
+            scale: 20;
+          }
+          70% {
+            scale: 10;
+          }
+          100% {
+            scale: 20;
+          }
+        } */
+
+      .pp_mobile {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 300px;
+        height: 250px;
+        z-index: 0;
+      }
+
+      .pp_newtralil {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 300px;
+        height: 250px;
+        z-index: 0;
+        /* mix-blend-mode: screen; */
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .counter {
+        position: absolute;
+        top: 46px;
+        left: 87px;
+        letter-spacing: 2px;
+        z-index: 0;
+        font-size: 19px;
+        color: #ffffff;
+        text-align: center;
+        line-height: 53px;
+        animation-duration: 1s;
+        animation-delay: 0s;
+        transform: rotate(352deg);
+        /* background: white;
+                background-color: white;
+                border-radius: 10px;
+                width: 250px;
+                height: 50px; */
+      }
+
+      i {
+        font-size: 20px !important;
+      }
+
+      @media (max-width: 991px) {
+        .col-md-4 {
+          border-right: 0px dashed black;
+          border-bottom: 1px dashed black;
+          width: 50%;
+          margin: auto auto;
+        }
+
+        .col-md-4:last-child {
+          border-bottom: 0px dashed black;
+        }
+      }
+
+      .slide-in-left {
+        -webkit-animation: slide-in-left 0.5s
+          cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      }
+
+      .hideToShow {
+        animation: hideToShow 4.1s linear;
+      }
+
+      @keyframes hideToShow {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @-webkit-keyframes slide-in-left {
+        0% {
+          -webkit-transform: translateX(-1000px);
+          transform: translateX(-1000px);
+          opacity: 0;
+        }
+
+        100% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slide-in-left {
+        0% {
+          -webkit-transform: translateX(-1000px);
+          transform: translateX(-1000px);
+          opacity: 0;
+        }
+
+        100% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .slide-in-bottom {
+        -webkit-animation: slide-in-bottom 0.5s
+          cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+          both;
+      }
+
+      @-webkit-keyframes slide-in-bottom {
+        0% {
+          -webkit-transform: translateY(1000px);
+          transform: translateY(1000px);
+          opacity: 0;
+        }
+
+        100% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slide-in-bottom {
+        0% {
+          -webkit-transform: translateY(1000px);
+          transform: translateY(1000px);
+          opacity: 0;
+        }
+
+        100% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .backgroundcol {
+        background-color: white;
+        border-radius: 10px;
+        padding: 0px 10px 0px 10px;
+      }
+
+      .platform {
+        width: 400px;
+        height: 250px;
+        position: relative;
+        top: 0px;
+        background: blue;
+        animation: move 4.5s linear infinite;
+      }
+      @keyframes move {
+        0% {
+          left: 0px;
+        }
+        50% {
+          left: -40px;
+        }
+        70% {
+          right: 40px;
+        }
+        100% {
+          left: 0%;
+        }
+      }
+
+      .scale-up-center {
+        -webkit-animation: scale-up-center ease-in-out infinite 0.7s 2 forwards
+          cubic-bezier(0.39, 0.575, 0.565, 1);
+        animation: scale-up-center 0.7s 2 forwards
+          cubic-bezier(0.39, 0.575, 0.565, 1);
+      }
+
+      @-webkit-keyframes scale-up-center {
+        0% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+        50% {
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+        }
+
+        100% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+      }
+      /* @keyframes scale-up-center {
+          0% {
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+          }
+          100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+          }
+        } */
+
+      .pp_copy1 {
+        position: absolute;
+        top: 55px;
+        left: 0px;
+        width: 300px;
+        height: 44px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 1;
+      }
+      .pp_copy2 {
+        position: absolute;
+        top: 56px;
+        left: 0px;
+        width: 300px;
+        height: 44px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 1;
+      }
+
+      .blankText {
+        width: 141px;
+        height: 78px;
+        top: 29px;
+        left: 65px;
+        position: absolute;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <a href="{CLICK_MACRO}" target="_blank"> -->
+    <div class="pp_wrapper">
+      <div class="pp_slide1">
+        <div class="slide_1_color hideToShow"></div>
+        <img class="blankText" src="./slide1/blankText.png" alt="" />
+        <div class="counter">40000000</div>
+      </div>
+      <div class="pp_slide2">
+        <img src="./4x3-2.jpg " alt="" class="pp_mobile platform" />
+        <img
+          src="./slide2/mnemonic1.png"
+          alt=""
+          class="pp_copy scale-up-center hidden"
+        />
+        <img
+          src="./slide2/text1_1.svg"
+          alt=""
+          class="pp_copy1 slide-in-left hidden"
+        />
+        <img
+          src="./slide2/text2.svg"
+          alt=""
+          class="pp_copy2 slide-in-left hidden"
+        />
+        <img src="./slide2/logo.png" alt="" class="pp_newtralil" />
+      </div>
+    </div>
+    <!-- </a> -->
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.counterup/1.0/jquery.counterup.min.js"></script> -->
+
+    <script>
+      var pp_copy = document.querySelector(".pp_copy");
+
+      var pp_copy1 = document.querySelector(".pp_copy1");
+      var pp_copy2 = document.querySelector(".pp_copy2");
+
+      var pp_slide1 = document.querySelector(".pp_slide1");
+      var pp_slide2 = document.querySelector(".pp_slide2");
+
+      setTimeout(animate, false);
+      var check = 0;
+
+      function animate() {
+        // $(".counter").counterUp({
+        //   delay: 3,
+        //   time: 2000,
+        // });
+
+        let currentCounter = 0;
+        let increment = 893456;
+
+        let targetValue = 40000000;
+
+        updateCounter();
+
+        var l = 1;
+
+        function updateCounter() {
+          l += 1;
+          console.log(l);
+          if (currentCounter < targetValue) {
+            currentCounter += increment;
+            if (currentCounter > targetValue) {
+              currentCounter = targetValue;
+            }
+            document.querySelector(".counter").innerHTML = currentCounter;
+            setTimeout(updateCounter, 90);
+          }
+        }
+
+        console.log(l);
+
+        function translateNumToBangla(num) {
+          banglaNum = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+          banglaNumText = "";
+          numText = num.toString();
+          for (let c of numText) {
+            banglaNumText += banglaNum[parseInt(c)];
+          }
+          return banglaNumText;
+        }
+
+        pp_slide1.classList.remove("hidden");
+        pp_slide2.classList.add("hidden");
+
+        pp_copy.classList.add("hidden");
+        pp_copy1.classList.add("hidden");
+        pp_copy2.classList.add("hidden");
+
+        // setTimeout(function () {
+        setTimeout(function () {
+          pp_slide1.classList.add("hidden");
+          pp_slide2.classList.remove("hidden");
+          pp_copy.classList.remove("hidden");
+          setTimeout(function () {
+            pp_copy.classList.add("hidden");
+            setTimeout(function () {
+              pp_copy1.classList.remove("hidden");
+              setTimeout(function () {
+                pp_copy2.classList.remove("hidden");
+                if (check < 4) {
+                  setTimeout(function () {
+                    check++;
+                    animate();
+                    console.log(check);
+                  }, 5000);
+                }
+              }, 300);
+            }, 500);
+          }, 3500);
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>

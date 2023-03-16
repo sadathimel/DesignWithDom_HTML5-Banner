@@ -302,6 +302,28 @@
         height: 111px;
         z-index: 0;
       }
+      .platform {
+        width: 400px;
+        height: 250px;
+        position: relative;
+        top: 0px;
+        background: blue;
+        animation: move 4.5s linear infinite;
+      }
+      @keyframes move {
+        0% {
+          left: 0px;
+        }
+        50% {
+          left: -40px;
+        }
+        70% {
+          right: 40px;
+        }
+        100% {
+          left: 0%;
+        }
+      }
     </style>
   </head>
 
