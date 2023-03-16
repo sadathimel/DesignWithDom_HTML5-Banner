@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banglalink</title>
+
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .pp_slider {
+        width: 300px;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+        /* background-color: #ed8139; */
+        opacity: 0.75;
+        background-image: url("./slide1.jpg");
+      }
+
+      .pp_slide1 {
+        width: 300px;
+        height: 250px;
+        position: absolute;
+        overflow: hidden;
+        /* background-color: #ed8139;
+        opacity: 0.75; */
+        /* background-image: url("./slide1.jpg"); */
+      }
+
+      .pp_wrapper {
+        width: 300px;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+        background-image: url("./Assets/bg.jpg");
+      }
+
+      .pp_31 {
+        position: absolute;
+        bottom: 20px;
+        left: 67px;
+        width: 36px;
+        height: 81px;
+        z-index: 0;
+        clip-path: polygon(10% 90%, 90% 90%, 90% 90%, 10% 90%);
+      }
+
+      .pp_35 {
+        position: absolute;
+        bottom: 20px;
+        left: 109px;
+        width: 36px;
+        height: 94px;
+        z-index: 0;
+        clip-path: polygon(10% 90%, 90% 90%, 90% 90%, 10% 90%);
+      }
+
+      .pp_37 {
+        position: absolute;
+        bottom: 20px;
+        left: 151px;
+        width: 36px;
+        height: 105px;
+        z-index: 0;
+        clip-path: polygon(10% 90%, 90% 90%, 90% 90%, 10% 90%);
+      }
+
+      .pp_40 {
+        position: absolute;
+        bottom: 20px;
+        left: 195px;
+        width: 36px;
+        height: 115px;
+        z-index: 0;
+        clip-path: polygon(10% 90%, 90% 90%, 90% 90%, 10% 90%);
+      }
+
+      @keyframes line {
+        0% {
+          clip-path: polygon(
+            0% 96.8%,
+            50.75% 100%,
+            100% 97.05%,
+            100% 96.8%,
+            50.75% 100%,
+            0.02% 97.05%
+          );
+        }
+
+        100% {
+          clip-path: polygon(
+            0% 96.8%,
+            50.75% 100%,
+            100% 97.05%,
+            100% 0%,
+            52% 0%,
+            0% 0%
+          );
+        }
+      }
+
+      .line {
+        animation-name: line;
+        animation-duration: 2s;
+        animation-fill-mode: both;
+        animation-delay: 0.5s;
+      }
+
+      .pp_bllogo {
+        position: absolute;
+        top: 8px;
+        right: 7px;
+        width: 136px;
+        height: 21px;
+        z-index: 2;
+      }
+
+      .pp_numberbase {
+        position: absolute;
+        bottom: 134px;
+        left: 31px;
+        width: 235px;
+        height: 53px;
+        z-index: 0;
+      }
+
+      .pp_slide2 {
+        width: 300px;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+        /* background-image: url("./slide2/bg2.jpg"); */
+        /* background-image: url("./slide2.jpg"); */
+      }
+
+      .pp_copy {
+        position: absolute;
+        top: 36px;
+        left: 62px;
+        width: 213px;
+        height: 100px;
+        z-index: 0;
+      }
+
+      .pp_mobile {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 300px;
+        height: 250px;
+        z-index: 0;
+      }
+
+      .pp_newtralil {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 300px;
+        height: 61px;
+        z-index: 0;
+        mix-blend-mode: screen;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .counter {
+        position: absolute;
+        top: 46px;
+        left: 87px;
+        letter-spacing: 2px;
+        z-index: 0;
+        font-size: 19px;
+        color: #ffffff;
+        text-align: center;
+        line-height: 53px;
+        animation-duration: 1s;
+        animation-delay: 0s;
+        transform: rotate(352deg);
+      }
+      .overlayorange {
+        width: 300px;
+        height: 250px;
+        background-color: #d9692a;
+        opacity: 0.75;
+      }
+
+      i {
+        font-size: 20px !important;
+      }
+
+      @media (max-width: 991px) {
+        .col-md-4 {
+          border-right: 0px dashed black;
+          border-bottom: 1px dashed black;
+          width: 50%;
+          margin: auto auto;
+        }
+
+        .col-md-4:last-child {
+          border-bottom: 0px dashed black;
+        }
+      }
+
+      .slide-in-left {
+        -webkit-animation: slide-in-left 0.5s
+          cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      }
+
+      @-webkit-keyframes slide-in-left {
+        0% {
+          -webkit-transform: translateX(-1000px);
+          transform: translateX(-1000px);
+          opacity: 0;
+        }
+
+        100% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slide-in-left {
+        0% {
+          -webkit-transform: translateX(-1000px);
+          transform: translateX(-1000px);
+          opacity: 0;
+        }
+
+        100% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .slide-in-bottom {
+        -webkit-animation: slide-in-bottom 0.5s
+          cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+          both;
+      }
+
+      @-webkit-keyframes slide-in-bottom {
+        0% {
+          -webkit-transform: translateY(1000px);
+          transform: translateY(1000px);
+          opacity: 0;
+        }
+
+        100% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slide-in-bottom {
+        0% {
+          -webkit-transform: translateY(1000px);
+          transform: translateY(1000px);
+          opacity: 0;
+        }
+
+        100% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .copyblank {
+        position: absolute;
+        top: 30px;
+        left: 64px;
+        width: 141px;
+        height: 78px;
+        z-index: 0;
+      }
+      .copy {
+        position: absolute;
+        top: 28px;
+        left: 52px;
+        width: 243px;
+        height: 111px;
+        z-index: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="{CLICK_MACRO}" target="_blank">
+      <div class="pp_wrapper">
+        <img src="./Assets/bllogo.png" alt="" class="pp_bllogo" />
+
+        <div class="pp_slide1">
+          <div class="overlayorange"></div>
+          <img class="copyblank" src="./Assets/copyblank.png" alt="" />
+
+          <div class="counter">40000000</div>
+
+          <img
+            class="copy hidden slide-in-bottom"
+            src="./Assets/copy.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </a>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.counterup/1.0/jquery.counterup.min.js"></script>
+
+    <script>
+      var overlayorange = document.querySelector(".overlayorange");
+
+      var pp_slide1 = document.querySelector(".pp_slide1");
+
+      var pp_numberbase = document.querySelector(".pp_numberbase");
+
+      var copyblank = document.querySelector(".copyblank");
+
+      var copy = document.querySelector(".copy");
+
+      var counter = document.querySelector(".counter");
+
+      let targetValue = 40000000;
+      let currentCounter = 0;
+      let increment = 893456;
+
+      updateCounter();
+
+      function updateCounter() {
+        if (currentCounter < targetValue) {
+          currentCounter += increment;
+          if (currentCounter > targetValue) {
+            currentCounter = targetValue;
+          }
+          document.querySelector(".counter").innerHTML =
+            translateNumToBangla(currentCounter);
+          setTimeout(() => {
+            updateCounter();
+          }, 50);
+        }
+      }
+      function translateNumToBangla(num) {
+        banglaNum = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+        banglaNumText = "";
+        numText = num.toString();
+        for (let c of numText) {
+          banglaNumText += banglaNum[parseInt(c)];
+        }
+        return banglaNumText;
+      }
+
+      setTimeout(animate, false);
+      var check = 0;
+      opacity();
+      function opacity() {
+        var op = 1; // initial opacity
+        var timer = setInterval(function () {
+          if (op <= 0) {
+            clearInterval(timer);
+          }
+          op = op - 0.1;
+          overlayorange.style.opacity = op;
+          console.log(op);
+        }, 200);
+      }
+
+      function animate() {
+        pp_slide1.classList.remove("hidden");
+        setTimeout(function () {
+          copyblank.classList.add("hidden");
+          counter.classList.add("hidden");
+          copy.classList.remove("hidden");
+          setTimeout(function () {
+            if (check < 5) {
+              setTimeout(function () {
+                check++;
+                animate();
+                console.log(check);
+              }, 6000);
+            }
+          }, 2500);
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
