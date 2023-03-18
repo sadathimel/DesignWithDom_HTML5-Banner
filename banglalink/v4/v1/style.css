@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  width: 300px;
+  height: 250px;
+  overflow: hidden;
+  user-select: none;
+}
+
+.ppm_container {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+}
+
+.ppm_check {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: .5;
+  height: 250px;
+  width: 300px;
+}
+
+
+.ppm_logo {
+  top: 8px;
+  left: 156px;
+}
+
+/* ppm_slide_1 */
+.ppm_bg {
+  top: 0px;
+  left: 0px;
+}
+
+.ppm_blankText {
+  top: 29px;
+  left: 65px;
+}
+
+.ppm_fullText {
+  top: 30px;
+  left: 55px;
+}
+
+.ppm_orangeOverlay {
+  top: 0px;
+  left: 0px;
+}
+.ppm_numberCounter {
+  top: 58px;
+  left: 85px;
+  color: #fff;
+  font-size: 21px;
+  font-weight: 600;
+  transform: rotate(351deg);
+  text-align: right;
+  height: 30px;
+  width: 120px;
+  /* letter-spacing: 1.3px; */
+}
+
+
+/* Utility class */
+.ppm_absolute {
+  position: absolute;
+}
+
+.ppm_hidden {
+  display: none;
+}
+
+.ppm_zeroOpacity {
+  opacity: 0;
+}
+
+.error {
+  outline: 2px solid red !important;
+}
+
+.success {
+  outline: 2px solid rgb(9, 148, 39) !important;
+}
