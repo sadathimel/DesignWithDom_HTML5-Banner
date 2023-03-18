@@ -1,0 +1,137 @@
+*{
+    padding:0;
+    margin:0;
+    font-family:Arial,Helvetica, sans-serif, Calibri, Droid;
+}
+@font-face {
+    font-family: 'Avenir Next Rounded Pro';
+    src: url('AvenirNextRoundedPro-Bold.woff2') format('woff2'),
+    url('AvenirNextRoundedPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+#container{
+    width: 300px;
+    height: 250px;
+    top:0;
+    left:0;
+    perspective: 1500px;
+    overflow: hidden;
+    font-family:Arial, Helvetica;
+    cursor: pointer;
+    background-color: #f7f7f7;
+}
+.footer{
+    background: #fff;
+    width: 100%;
+    height: 53px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.footer .cta{
+    position: absolute;
+    text-decoration: none;
+    color: white;
+    background: #fd7945;
+    display: block;
+    line-height: 32px;
+    height: 32px;
+    width: 122px;
+    right: 14px;
+    bottom: 12px;
+    font-size: 17px;
+    font-family:Arial, Helvetica;
+    text-align: center;
+}
+.slide{
+    overflow: hidden;
+}
+.slide img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.slide .right_woman{
+    left: 46px;
+}
+.slide .left_man{
+    left: auto;
+    right: 25px;
+}
+.navigation{
+    display: none;
+}
+.title{
+    font-family: 'Avenir Next Rounded Pro';
+    font-weight: bold;
+    font-style: normal;
+    color: #fff;
+    position: absolute;
+    top: 17px;
+    font-size: 21px;
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+    width: 280px;
+    left: 10px;
+    text-shadow: 0px 0px 11px rgba(2, 2, 2, 0.6);
+}
+.controls{
+    top: 27% !important;
+    opacity: 0;
+}
+/* #myVideo{
+    width: 350px;
+    position: relative;
+    top: 27px;
+} */
+#link2{
+    background-color: black;
+}
+
+#myVideo{
+    width: 460px;
+    height: 310px;
+    position: relative;
+    top: -70px;
+    left: 0;
+}
+#invis{
+    width: 300px;
+    height: 200px;
+    background-color: brown;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+}
+#hand img{
+    width: 31px !important;
+    height: 30px !important;
+}
+
+#video{
+    height: 250px;
+    left: -75px;
+    position: relative;
+}
+.video-controls{
+    top: -36px;
+    position: relative;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#sound{
+    float: right;
+    background: none;
+    color: white;
+    border: none;
+}
+#toggle{
+    background: none;
+    color: white;
+    border: none;
+}
+/*side background color*/
