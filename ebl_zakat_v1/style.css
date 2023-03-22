@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* user-select: none; */
+}
+
+.hidden{
+    display: none;
+}
+
+.pp_wrapper{
+    position: relative;
+    width: 300px;
+    height: 250px;
+    background: url('./images/Assets/bg.jpg');
+    /* background: url('./images/s1.jpg'); */
+    /* background: url('./images/s2.jpg'); */
+    /* background: url('./images/s3.jpg'); */
+    /* background: url('./images/s4.jpg'); */
+}
+
+.element_1{
+    position: absolute;
+    width: 51px;
+    height: 46px;
+    top: 10px;
+    left: 10px;
+}
+
+.element_2{
+    position: absolute;
+    width: 234px;
+    height: 66px;
+    top: 101px;
+    left: 33px;
+}
+
+.element_3{
+    position: absolute;
+    width: 270px;
+    height: 113px;
+    top: 68px;
+    left: 14px;
+}
+.property1{
+    position: absolute;
+    margin-top: 96px;
+    margin-left: 112px;
+    
+}
+.property2{
+    position: absolute;
+    margin-top: 159px;
+    margin-left: 112px;
+   
+}
+.property1, .property2{
+    margin-bottom: 2px;
+    outline: none;
+    border: none;
+    cursor: text;
+    background-color: inherit;
+    box-shadow: none;
+    width: 90px;
+    right: 2px;
+    border-radius:  0 8px 8px 0;
+    
+}
+.element_4{
+    position: absolute;
+    width: 270px;
+    height: 50px;
+    top: 131px;
+    left: 14px;
+}
+.element_5{
+    position: absolute;
+    width: 136px;
+    height: 35px;
+    top: 197px;
+    left: 82px;
+}
+.element_6{
+    position: absolute;
+    width: 236px;
+    height: 64px;
+    top: 65px;
+    left: 31px;
+}
+.zakat{
+    position: absolute;
+    top:102px;
+    left:140px;
+    right:0;
+}
+.element_7{
+    position: absolute;
+    width: 174px;
+    height: 36px;
+    top: 135px;
+    left: 62px;
+}
+.element_8{
+    position: absolute;
+    width: 210px;
+    height: 26px;
+    top: 175px;
+    left: 45px;
+}
+.mobile {
+    position: absolute;
+    border-radius: 40px;
+    padding: 3px 12px;
+    border: 0;
+    width: 164px;
+    left: 56px;
+    right: 0px;
+    top: 174px;
+    background-color: inherit;
+    box-shadow: none;
+    outline: 0;
+    font-size: 18px;
+}
+.element_9{
+    position: absolute;
+    width: 90px;
+    height: 23px;
+    top: 211px;
+    left: 105px;
+}
+.element_10{
+    position: absolute;
+    width: 300px;
+    height: 250px;
+}
+.element_11{
+    position: absolute;
+    width: 170px;
+    height: 64px;
+    top: 158px;
+    left: 66px;
+}

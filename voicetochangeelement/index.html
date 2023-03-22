@@ -1,0 +1,234 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>
+      CodePen - Change Element with Voice (Chrome Only) #CodePenChallenge
+    </title>
+
+    <link
+      rel="stylesheet"
+      href="https://ms.purplepatch.online/demo/voicetochangeelement/reset.main.css"
+    />
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 300px;
+        height: 250px;
+        font-family: Arial, sans-serif;
+        color: #111;
+        position: relative;
+        /* background-color: purple; */
+      }
+
+      h1 {
+        font-size: 30px;
+        /* margin-bottom: 0.6em; */
+      }
+
+      .element {
+        font-size: 50px;
+        background-color: #add8e6;
+        border: 2px solid #111;
+        /* border-radius: 0.4em; */
+        padding: 10px;
+        margin-bottom: 0.4em;
+        transition: background-color 200ms;
+        position: absolute;
+        top: 77px;
+        left: 37px;
+      }
+
+      .element-symbol {
+        display: inline-block;
+        position: relative;
+      }
+
+      .element-name {
+        font-size: 20px;
+        margin-top: 5px;
+        min-width: 10px;
+      }
+
+      .heard-output {
+        font-size: 20px;
+        /* margin-bottom: 0.8em; */
+        position: absolute;
+        bottom: 13px;
+        left: 72px;
+      }
+
+      .elements-link {
+        font-size: calc(18px + 0.8vh);
+        font-weight: 600;
+        color: #111;
+        border-bottom: 0.1em solid #111;
+        text-decoration: none;
+        margin-top: 0.6em;
+      }
+      .element-abbr {
+        font-size: 35px;
+      }
+
+      .pp_wprapper {
+        width: 300px;
+        height: 250px;
+        background-color: tomato;
+      }
+      .h1 {
+        position: absolute;
+        top: 19px;
+        left: 55px;
+      }
+      #click {
+        position: absolute;
+        bottom: 22px;
+        left: 103px;
+        border-radius: none;
+      }
+      #click:focus {
+        color: tomato;
+        background-color: purple;
+      }
+      .button {
+        font-size: 20px;
+        margin: 10px 20px;
+      }
+    </style>
+
+    <script>
+      window.console = window.console || function (t) {};
+    </script>
+
+    <script>
+      if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+      }
+    </script>
+  </head>
+
+  <body translate="yes">
+    <div class="pp_wprapper">
+      <div class="h1">
+        <h1>Say Element:</h1>
+      </div>
+      <div class="element">
+        <p class="element-symbol">
+          <span class="element-abbr">নিরাপদ পানি</span>
+
+          <!-- <sup class="element-atomic-weight">4</sup> -->
+          <!-- <sub class="element-atomic-number">2</sub> -->
+
+          <!-- <button id="click">click</button> -->
+        </p>
+
+        <p class="element-name">Nirapodpani</p>
+      </div>
+
+      <button id="click"><span class="button">click</span></button>
+      <!-- <div class="heard-output">Heard: nirapodpani</div> -->
+    </div>
+
+    <script src="https://ms.purplepatch.online/demo/voicetochangeelement/script.js"></script>
+
+    <script id="rendered-js">
+      //DOM load event
+      window.addEventListener("DOMContentLoaded", () => {
+        //Set speech recognition
+        window.SpeechRecognition =
+          window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        var recognition = new SpeechRecognition(),
+          elementSquare = document.querySelector(".element"),
+          elementName = document.querySelector(".element-name"),
+          elementAbbr = document.querySelector(".element-abbr"),
+          elementNum = document.querySelector(".element-atomic-number"),
+          elementWeight = document.querySelector(".element-atomic-weight"),
+          heardOutput = document.querySelector(".heard-output");
+        let clickVoic = document.getElementById("click");
+
+        let arya = [
+          "hello",
+          "nirapodpani",
+          "nirafodpani",
+          "niraponhani",
+          "nidapaudhpani",
+          "niraponhani",
+          "nirrapoodpani",
+          "niraponpani",
+          "miraporpani",
+          "nirapadpani",
+          "niraapadpani",
+          "niraapaadpani",
+          "nirapadpani",
+          "nirahuapani",
+          "nirapatpani",
+          "reportpani",
+          "merapotapani",
+          "merabahutpani",
+          "nirupitpani",
+          "merapani",
+          "pani",
+          "merapaudhpani",
+          "merapathpani",
+          "nirapotpani",
+          "terepasspani",
+          "nirapadhoney",
+          "merapadpani",
+          "merapattpani",
+          "niratpani",
+          "nirpatpani",
+          "merapathani",
+          "needapotpani",
+          "bahutpani",
+        ];
+        //Start speech recognition
+        // recognition.lang = "bn";
+        clickVoic.onclick = () => recognition.start();
+
+        //Listen for when the user finishes talking
+        recognition.addEventListener("result", (e) => {
+          //Get transcript of user speech
+          const transcript = e.results[0][0].transcript
+            .toLowerCase()
+            .replace(/\s/g, "")
+            .replace(/^\w/, (c) => c.toLowerCase());
+
+          //Output transcript
+          // let a = (heardOutput.textContent = `Heard: ${transcript}`);
+          //Check if transcript is valid element
+          if (arya.includes(transcript)) {
+            //Output element
+            elementName.textContent = "Thanks for your answer";
+            // elementAbbr.textContent = elementObj.abbreviation;
+            // elementNum.textContent = elementObj.atomicNumber;
+            // elementWeight.textContent = elementObj.atomicWeight;
+            elementAbbr.textContent = "Found";
+
+            elementSquare.style.backgroundColor = "#800";
+            recognition.stop();
+          } else {
+            elementName.textContent = "Not Found , try again";
+            elementAbbr.textContent = "Not Found, try again";
+            // elementNum.textContent = "Not Found, try again";
+            // elementWeight.textContent = "Not Found, try again";
+            elementSquare.style.backgroundColor = "#fff";
+            setTimeout(function () {
+              recognition.stop();
+            }, 4000);
+          }
+        });
+
+        //Restart speech recognition after user has finished talking
+        // recognition.addEventListener("end", recognition.start);
+      });
+      //# sourceURL=pen.js
+    </script>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#adArea {
+  background: #ededed;
+  overflow: hidden;
+  text-overflow: clip;
+  cursor: pointer;
+}
+
+.plusEl {
+  position: absolute;
+  /* width: 111px;
+    height: 96px; */
+  /* width: 83px;
+  height: 82px;
+  top: 5px; */
+  position: absolute;
+  width: 61px;
+  height: 82px;
+  top: -13px;
+  left: -5px;
+  z-index: 1;
+}
+
+.plus_circle {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.plus {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.plus_stroke {
+  margin-left: 3px;
+  margin-top: 3px;
+}
+
+#pluses {
+  position: absolute;
+}
+
+#picCont {
+  position: absolute;
+  left: 39px;
+  top: 44px;
+  width: 222px;
+  height: 167px;
+  overflow: hidden;
+  text-overflow: clip;
+  border: 1px solid #bb162b;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+#textBg {
+  position: relative;
+  width: 222px;
+  height: 28px;
+  border-bottom: 1px solid #bb162b;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+#clickArea {
+  background-color: red;
+  opacity: 0;
+}
+
+.center {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.abs {
+  position: absolute;
+}
+
+.rct {
+  width: 300px;
+  height: 250px;
+  position: absolute;
+}
+
+.opacity0 {
+  opacity: 0;
+}
+
+.opacity1 {
+  opacity: 1;
+}
+
+.zi1 {
+  z-index: 800;
+}
+
+.zi2 {
+  z-index: 900;
+}
+
+.zi5 {
+  z-index: 5000;
+}
+
+.zi6 {
+  z-index: 6000;
+}
+
+.zi7 {
+  z-index: 7000;
+}
+
+.zi9 {
+  z-index: 9000;
+}
+
+.zIndex99998 {
+  z-index: 99998;
+}
+
+.zIndex99999 {
+  z-index: 99999;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.noEvents {
+  pointer-events: none;
+  width: 300px;
+  height: 250px;
+  top: 0px;
+  left: 51px;
+}
+
+.noVis {
+  visibility: none;
+}
+
+.noDisplay {
+  display: none;
+}
+
+
+
+/* video btn design */
+.video-controls{
+  position: absolute;
+  bottom: 1px;
+  /* background: #cccccc33; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.btn{
+  background-color: #cccccc00;
+  border: none;
+  color: white;
+}

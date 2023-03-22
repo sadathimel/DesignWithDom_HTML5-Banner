@@ -1,0 +1,289 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>DFSK campaign by Purplepatch</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://purplepatch.online/assets/ico/favicon.ico"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./mystyle.css?v=1.2" />
+    <link
+      rel="stylesheet"
+      href="//fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+
+  <style>
+    .wrapper {
+      position: relative;
+      width: 300px;
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .video-wrapper {
+      background-color: #000000;
+    }
+
+    #pph_container {
+      width: 300px;
+      height: 250px;
+      top: 0;
+      left: 0;
+      perspective: 1500px;
+      overflow: hidden;
+      cursor: pointer;
+      background-color: #000000;
+    }
+
+    #pph_video {
+      width: 300px;
+      height: 250px;
+      left: 0;
+      position: relative;
+    }
+
+    .pph_video-controls {
+      top: -35px;
+      position: relative;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .pph_sound {
+      float: right;
+      background: 0 0;
+      color: #fff;
+      border: none;
+      outline: 0;
+    }
+
+    .pph_toggle {
+      background: 0 0;
+      color: #fff;
+      border: none;
+      outline: 0;
+    }
+    .hidden {
+      display: none;
+    }
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+    }
+    #cta {
+      z-index: 2;
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      <div id="pph_video-player" class="video-wrapper" onclick="clickabc()">
+        <video
+          id="pph_video"
+          src="./img/video.mp4"
+          autoplay
+          muted="true"
+          loop
+        ></video>
+        <div class="pph_video-controls">
+          <button id="pph_toggle" class="pph_toggle">
+            <i class="material-icons">play_arrow</i>
+          </button>
+          <button id="pph_sound" class="pph_sound">
+            <i class="material-icons">volume_off</i>
+          </button>
+        </div>
+      </div>
+      <div id="adArea" class="rct opacity0">
+        <img
+          class="footer"
+          src="./img/footer.png"
+          alt=""
+          onclick="clickabc()"
+        />
+        <div id="bg" class=""></div>
+        <div id="top_grad" class=""></div>
+
+        <div
+          id="darker"
+          style="background-color: black"
+          class="rct opacity0"
+        ></div>
+
+        <div id="t2" class="rct">
+          <div id="t21" class="opacity0"></div>
+          <div id="t22" class="opacity0"></div>
+          <div id="t23" class="opacity0"></div>
+        </div>
+
+        <div id="cta" class="opacity0 noEvents"></div>
+
+        <div id="picCont" class="opacity0">
+          <div id="pic1" class="opacity0"></div>
+          <div id="pic2" class="opacity0"></div>
+          <div id="pic3" class="opacity0"></div>
+          <div id="pic4" class="opacity0"></div>
+          <div id="pic5" class="opacity0"></div>
+
+          <div id="textBg" class=""></div>
+        </div>
+
+        <div id="t31" class="opacity0"></div>
+        <div id="t32" class="opacity0"></div>
+        <div id="t33" class="opacity0"></div>
+        <div id="t34" class="opacity0"></div>
+        <div id="t35" class="opacity0"></div>
+
+        <div id="clickArea" class="rct"></div>
+
+        <div id="pluses" class="opacity0">
+          <div id="p1" class="plusEl plusOne">
+            <div id="" class="plus_stroke"></div>
+            <div id="" class="plus_circle"></div>
+            <div id="" class="plus"></div>
+          </div>
+          <div id="p2" class="plusEl plusTwo" style="display: none">
+            <div id="" class="plus_stroke"></div>
+            <div id="" class="plus_circle"></div>
+            <div id="" class="plus"></div>
+          </div>
+          <div id="p3" class="plusEl plusThree">
+            <div id="" class="plus_stroke"></div>
+            <div id="" class="plus_circle"></div>
+            <div id="" class="plus"></div>
+          </div>
+          <div id="p4" class="plusEl plusFour">
+            <div id="" class="plus_stroke"></div>
+            <div id="" class="plus_circle"></div>
+            <div id="" class="plus"></div>
+          </div>
+          <div id="p5" class="plusEl plusFive" style="display: none">
+            <div id="" class="plus_stroke"></div>
+            <div id="" class="plus_circle"></div>
+            <div id="" class="plus"></div>
+          </div>
+        </div>
+
+        <div id="t1" class="noEvents opacity0"></div>
+      </div>
+    </div>
+
+    <script>
+      var assets_url = "./img/";
+
+      var assets = {
+        init: [
+          {
+            format: "png",
+            type: "id",
+            scale: 1,
+            names: "t1 top_grad t21 t22 t23",
+          },
+          {
+            format: "jpg",
+            type: "id",
+            scale: 1,
+            names: "bg",
+          },
+          {
+            format: "png",
+            type: "class",
+            scale: 1,
+            names: "plus plus_circle plus_stroke",
+          },
+        ],
+        end: [
+          {
+            format: "jpg",
+            type: "id",
+            scale: 1,
+            names: "pic1 pic2 pic3 pic4 pic5",
+          },
+          {
+            format: "png",
+            type: "id",
+            scale: 1,
+            names: "t31 t32 t33 t34 t35 cta",
+          },
+        ],
+      };
+
+      // purplepatch
+      var _dsptr = function (e) {
+        var track = new Image();
+        // track.src = "{EVENT_URL}" + e;
+      };
+
+      function ctaFunction(url) {
+        window.open("{CLICK_MACRO}", "_blank");
+      }
+
+      setTimeout(function () {
+        document.addEventListener("DOMContentLoaded", function () {
+          var adArea = document.getElementById("adArea");
+          adArea.classList.remove("hidden");
+          TweenMax.to(adArea, 0, { opacity: 1 });
+        });
+      }, 1000);
+    </script>
+
+    <script>
+      function clickabc() {
+        window.open("{CLICK_MACRO}", "_blank");
+      }
+
+      var player = document.querySelector("#pph_video-player");
+      var video = player.querySelector("#pph_video");
+      var toggle = player.querySelector("#pph_toggle");
+      var sound = player.querySelector("#pph_sound");
+
+      var playIcon = `<i class="material-icons">play_arrow</i>`;
+      var pauseIcon = `<i class="material-icons">pause</i>`;
+      var volumeUp = `<i class="material-icons">volume_up</i>`;
+      var volumeOff = `<i class="material-icons">volume_off</i>`;
+
+      function togglePlay(e) {
+        e.stopPropagation();
+        var playOrPause = video.paused ? "play" : "pause";
+        video[playOrPause]();
+      }
+
+      function updatePlayPause(e) {
+        e.stopPropagation();
+        var playPauseIcon = this.paused ? playIcon : pauseIcon;
+        toggle.innerHTML = playPauseIcon;
+      }
+
+      function toggleSound(e) {
+        e.stopPropagation();
+        var soundIcon = video.muted ? volumeUp : volumeOff;
+        sound.innerHTML = soundIcon;
+
+        if (video.muted) video.muted = false;
+        else video.muted = true;
+      }
+
+      video.addEventListener("play", updatePlayPause);
+      video.addEventListener("pause", updatePlayPause);
+      toggle.addEventListener("click", togglePlay);
+      sound.addEventListener("click", toggleSound);
+
+      setTimeout(function () {
+        document.querySelector("#pph_video-player").classList.add("hidden");
+        video.muted = true;
+        // setTimeout(function () {
+        //   document.querySelector(".footer").classList.add("hidden");
+        // }, 6000);
+      }, 29000);
+    </script>
+    <script type="text/javascript" src="./js/TweenMax.min.js"></script>
+    <script src="./code.js?v=1.2"></script>
+  </body>
+</html>
