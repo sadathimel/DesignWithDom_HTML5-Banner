@@ -1,0 +1,255 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="//purplepatch.online/assets/ico/favicon.ico"
+    />
+
+    <link rel="stylesheet" type="text/css" href="./images/style.css" />
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/CustomEase.min.js"></script>
+    <script src="./js/gsap.min.js"></script>
+  </head>
+
+  <body style="margin: 0; padding: 0">
+    <div id="pp_wrapper" class="pp_adsize">
+      <div id="sc_wrapper_2422" class="pp_adsize">
+        <div id="wrapper_2422" class="pp_adsize">
+          <div id="cartCont_2422" style="opacity: 0">
+            <div id="cart_shadow_2422"></div>
+
+            <!-- <div id="phone_2422" style="opacity: 0;"></div>
+          <div id="laptop_2422" style="opacity: 0;"></div>
+          <div id="watch_2422" style="opacity: 0;"></div> -->
+
+            <img src="./images/3.png" id="watch_2422" />
+            <img src="./images/5.png" id="watch_2422_2" />
+            <img src="./images/1.png" id="phone_2422" />
+            <img src="./images/4.png" id="laptop_2422_2" />
+            <img src="./images/2.png" id="laptop_2422" />
+
+            <div id="cart_2422">
+              <div id="logo_2422"></div>
+            </div>
+            <div id="cart_arm_2422"></div>
+          </div>
+        </div>
+        <div id="cta_cont_2422" style="opacity: 0">
+          <div id="cta_2422">
+            <div id="cta_arrow_2422"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="dragEl_2422" class="pp_adsize"></div>
+      <div id="closeBtn_2422"></div>
+    </div>
+
+    <script src="./js/code.js"></script>
+    <script>
+      var _document;
+      var _window;
+      var iframe;
+
+      window.pp_wrapper = document.getElementById("pp_wrapper"); //viewability
+      var pp = {};
+      pp.container = document.getElementById("pp_wrapper");
+      pp.closeBtn = document.getElementById("closeBtn_2422");
+      pp.wrapper = document.getElementById("wrapper_2422");
+      pp.sc_wrapper = document.getElementById("sc_wrapper_2422");
+      pp.dragEl = document.getElementById("dragEl_2422");
+      pp.shake_text = document.getElementById("shake_text_2422");
+      pp.cta = document.getElementById("cta_2422");
+      pp.next = document.getElementById("next_2422");
+
+      pp.cartCont = document.getElementById("cartCont_2422");
+      pp.cart_shadow = document.getElementById("cart_shadow_2422");
+      pp.cart = document.getElementById("cart_2422");
+      pp.logo = document.getElementById("logo_2422");
+      pp.cart_arm = document.getElementById("cart_arm_2422");
+      pp.watch = document.getElementById("watch_2422");
+      pp.phone = document.getElementById("phone_2422");
+      pp.laptop = document.getElementById("laptop_2422");
+
+      pp.laptop2 = document.getElementById("laptop_2422_2");
+      pp.watch2 = document.getElementById("watch_2422_2");
+
+      pp.cta_arrow = document.getElementById("cta_arrow_2422");
+      pp.cta = document.getElementById("cta_2422");
+      pp.cta_cont = document.getElementById("cta_cont_2422");
+
+      // l o c a l
+      var pp_h = {
+        globalScale: 0.35,
+        ftClick: true,
+        adEnd: false,
+        loopActive: true,
+        cokeStarted: false,
+        arrowTimeout: null,
+        dy: 0,
+        box: {
+          w: 200,
+          h: 167,
+          cur: 0,
+          imgs: [],
+          list: [],
+        },
+        col: ["#fff200", "#73ba44", "#263a8e"],
+        drag: {
+          x: 0,
+          y: 0,
+          lx: 0,
+          ly: 0,
+          dx: 0,
+          dy: 0,
+        },
+        screen: {
+          w: 0,
+          h: 0,
+          x: 0,
+          y: 0,
+        },
+        w: 200,
+        h: 167,
+        canvas: null,
+        ctx: null,
+        circles: {
+          amm: 20,
+          list: [],
+          posRed: 0.8, // pos reduce into center
+        },
+        circles2: {
+          amm: 30,
+          list: [],
+          posRed: 0.8, // pos reduce into center
+        },
+        can: {
+          rot: 0,
+          drot: 0,
+          mx: 0,
+          my: 0,
+          x: 50,
+          y: 17,
+          w: 46,
+          h: 99,
+        },
+        shakeCalc: {
+          list: new Array(30),
+        },
+        points: [],
+      };
+      // pp_h.circles.list = new Array(pp_h.circles.amm)
+
+      // OUT //
+      function goOut() {
+        var body = _document.getElementsByTagName("BODY");
+        $("#pp_wrapper").appendTo(body);
+      }
+
+      function setCss() {
+        var cssLink = document.createElement("link");
+        cssLink.href = assets_url + "style.css";
+        cssLink.rel = "stylesheet";
+        cssLink.type = "text/css";
+        _window.document.head.appendChild(cssLink);
+      }
+
+      function closeAd() {
+        pp_h.closed = true;
+        pp_h.loopActive = false;
+        if (pp_h.arrowTl != null) pp_h.arrowTl.kill();
+        if (pp_h.wrapperTl != null) pp_h.wrapperTl.kill();
+        if (pp_h.dropTl != null) pp_h.dropTl.kill();
+        if (pp_h.arrowTimeout) {
+          clearTimeout(pp_h.arrowTimeout);
+        }
+
+        startEvent("close_ad");
+
+        explodeAd("close");
+
+        gsap.to(pp.container, 0.25, {
+          scale: 0,
+          ease: Back.easeIn,
+          onComplete: function () {
+            pp.container.style.display = "none";
+          },
+        });
+
+        pp_h.adEnd = true;
+      }
+
+      pp.closeBtn.addEventListener("click", closeAd);
+
+      (function () {
+        try {
+          var curWindow = window;
+          var myInterval = setInterval(function () {
+            if (curWindow.frameElement == null) {
+              _document = curWindow.document;
+
+              _window = curWindow;
+              clearInterval(myInterval);
+              initIFrame();
+            } else {
+              iframe = curWindow.frameElement;
+            }
+            curWindow = curWindow.parent;
+          }, 10);
+        } catch (error) {
+          console.error(error);
+        }
+      })();
+
+      // Purplepatch Def
+
+      var pph = function (e) {
+        var track = new Image();
+        // track.src = "{EVENT_URL}" + e;
+      };
+
+      function ctaFunction() {
+        _window.open("{CLICK_MACRO}");
+        // startEvent("Click_CTA");
+      }
+
+      function startEvent(event_name) {
+        pph(event_name);
+      }
+      var isStarted = true;
+      function startedFunction() {
+        if (isStarted) {
+          isStarted = false;
+          startEvent("Main");
+        }
+      }
+
+      var isFinished = true;
+      function finishedFunction() {
+        if (isFinished) {
+          isFinished = false;
+          startEvent("Seen_All");
+        }
+      }
+      var assets_url = "./images/";
+
+      // f
+
+      window.requestAnimFrame = (function () {
+        return (
+          window.requestAnimationFrame ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame ||
+          window.oRequestAnimationFrame ||
+          window.msRequestAnimationFrame ||
+          function (/* function */ callback, /* DOMElement */ element) {
+            window.setTimeout(callback, 1000 / 60);
+          }
+        );
+      })();
+    </script>
+  </body>
+</html>

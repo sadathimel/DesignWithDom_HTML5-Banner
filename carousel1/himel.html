@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="icon" href="css/favicon.ico" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap">
+    <link rel="stylesheet" href="css/cs3d-preview.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <!-- cs3d-->
+    <link rel="stylesheet" href="https://vjs.zencdn.net/7.6.6/video-js.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/cs3d.min.css">
+   
+    <title>3D Carousel </title>
+  </head>
+  <body>
+   
+    <main >
+      <div class="">
+        <!-- Start gallery-->
+        <div class="">
+          <div class="rs-cs3d">
+           
+                <ul ">
+                  <li> <a href="assets/1.jpg"></a>
+                   
+                  </li>
+                  <li> <a href="assets/2.jpg" ></a>
+                    
+                  </li>
+                  <li> <a href="assets/3.jpg" ></a>
+                    
+                  </li>
+                  <li> <a href="assets/4.jpg" ></a>
+                    
+                  </li>
+                  <li> <a href="assets/5.jpg" ></a>
+                    
+                  </li>
+                  <li> <a href="assets/6.jpg" ></a>
+                    
+                  </li>
+                  <li> <a href="assets/1.jpg" ></a>
+                    
+                  </li>
+                  
+                  
+                </ul>
+                <span class="icon-cheveron-left rs-cs3d-lbn rs-cs3d-bnav" style="display: block; top: 40%;"></span>
+                <span class="icon-cheveron-right rs-cs3d-rbn rs-cs3d-bnav" style="display: block; top: 40%;"></span>
+         
+          </div>
+        </div>
+      </div>
+  
+  
+    <!-- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="https://raizensoft.com/test/web-app/products/list.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script src="js/prism.js"></script>
+    <script src="https://vjs.zencdn.net/7.6.6/video.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+    <script src="js/cs3d.min.js"></script>
+    <script type="text/javascript">
+      document.body.onload = function() {
+      
+        var el = document.querySelector('.rs-cs3d');
+        var cs3d = new CarouselStack(el, {
+      
+          useMouseDrag:true,
+        //   itemShadow:'0px 10px 15px 5px #111',
+        //   roundCorner:10,
+        //   viewAngleX:-15,
+          categoryMenu:{
+            horizontal:true
+          }
+        });
+        window.cs3d = cs3d;
+      }
+      
+    </script>
+  </body>
+</html>

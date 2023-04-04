@@ -1,0 +1,26 @@
+.rs-container {
+  /* background: black; */
+  width: 300px;
+  height: 250px;
+  position: relative;
+  top: 0px;
+}
+.rs-mg3d-hcmenu {
+  position: relative;
+  top: 0px;
+}
+
+.preview {
+  position: relative;
+  top: 0px;
+}
+.scene3d {
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
+
+ul {
+  display: none;
+  top: 0px;
+}

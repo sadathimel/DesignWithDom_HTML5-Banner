@@ -1,0 +1,187 @@
+#dragEl_2422 {
+    position: absolute !important;
+    /* width: 200px !important;
+    height: 167px !important; */
+    background-image: url(empty.png) !important;
+}
+
+#closeBtn_2422 {
+    position: absolute !important;
+    width: 24px !important;
+    height: 24px !important;
+    top: -5px !important;
+    right: -5px !important;
+    background-image: url(closeBtn.png) !important;
+    cursor: pointer !important;
+}
+
+#wrapper_2422 {
+    position: absolute !important;
+    /* width: 200px !important;
+    height: 167px !important; */
+    /*overflow: hidden !important;*/
+    /*text-overflow: clip !important;*/
+}
+
+#canvas_2422 {
+    position: absolute !important;
+    /* width: 200px !important;
+    height: 167px !important; */
+}
+
+#cta_cont_2422 {
+    position: absolute !important;
+    width: 200px !important;
+    height: 42px !important;
+}
+#cta_2422 {
+    position: absolute !important;
+    width: 200px !important;
+    height: 50px !important;
+    background: url(cta.png) center center / contain no-repeat!important;
+}
+#cta_arrow_2422 {
+    position: absolute !important;
+    width: 14px !important;
+    height: 22px !important;
+    /* background-image: url(cta_arrow.png) !important; */
+}
+
+
+
+
+
+#cart_shadow_2422 {
+    position: absolute !important;
+    width: 215px !important;
+    height: 167px !important;
+    background-image: url(cart_shadow.png) !important;
+
+    display: none !important;
+}
+#cart_2422 {
+    position: absolute !important;
+    width: 230px !important;
+    height: 170px !important;
+    background-image: url(cart.png) !important;
+}
+#cart_arm_2422 {
+    position: absolute !important;
+    width: 99px !important;
+    height: 56px !important;
+    background-image: url(cart_arm.png) !important;
+
+    display: none !important;
+}
+#cart_arm_cont_2422 {
+    position: absolute !important;
+    width: 99px !important;
+    height: 56px !important;
+}
+#laptop_2422 {
+    position: absolute !important;
+    width: 110px !important;
+    /* height: 171px !important; */
+    /* background-image: url(laptop.png) !important; */
+}
+#laptop_2422_2 {
+    position: absolute !important;
+    width: 125px !important;
+    /* height: 171px !important; */
+    /* background-image: url(laptop.png) !important; */
+}
+
+#phone_2422 {
+    position: absolute !important;
+    width: 125px !important;
+    /* height: 175px !important; */
+    /* background-image: url(phone.png) !important; */
+}
+#watch_2422 {
+    position: absolute !important;
+    width: 165px !important;
+    /* height: 173px !important; */
+    /* background-image: url(watch.png) !important; */
+}
+#watch_2422_2 {
+    position: absolute !important;
+    width: 125px !important;
+    /* height: 173px !important; */
+    /* background-image: url(watch.png) !important; */
+}
+
+#logo_2422 {
+    position: absolute !important;
+    width: 284px !important;
+    height: 67px !important;
+
+    display: none;
+}
+
+
+
+
+#sc_wrapper_2422 {
+    /* width: 200px !important;
+    height: 167px !important; */
+    position: absolute !important;
+}
+
+#shake_text_2422 {
+    position: absolute !important;
+    width: 200px !important;
+    height: 167px !important;
+    /*background-image: url(shake_text.png) !important;*/
+}
+
+#next_2422 {
+    position: absolute !important;
+    width: 200px !important;
+    height: 167px !important;
+    /*background-image: url(next.png) !important;*/
+}
+
+
+#pp_wrapper {
+    /* width: 300px !important;
+    height: 250px !important; */
+    position: fixed !important;
+    /*margin: 0 auto 40px !important;*/
+    border: 0px solid #CCC !important;
+    -webkit-perspective: 1000px !important;
+    -moz-perspective: 1000px !important;
+    -o-perspective: 1000px !important;
+    perspective: 1000px !important;
+    z-index: 9999999 !important;
+/*    right: 5% !important;
+    bottom: 2% !important;*/
+    cursor: grab !important;
+
+  /*  top: 0px !important;
+    left: 0px !important;*/
+    right: 14px;
+    bottom: 100px;
+    /*overflow: hidden !important;*/
+    /*text-overflow: clip !important;*/
+    border-radius: 5px !important;
+}
+
+.pp_adsize {
+    width: 250px !important;
+    height: 210px !important;
+}
+
+
+.rct {
+    width: 300px !important;
+    height: 250px !important;
+    position: absolute !important;
+}
+
+.noDisplay {
+    display: none !important;
+}
+
+.noEvents{
+  pointer-events: none !important;
+}
