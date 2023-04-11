@@ -1,0 +1,10 @@
+background-image: url(./bgmobile.png);
+    --purple-width-px: calc(var(--purple-width) * 0.80px);
+    --height: calc(var(--purple-width-px) / 2);
+    --road-length: calc(114vw - var(--purple-width-px));
+    left: -2px;
+
+
+
+
+    

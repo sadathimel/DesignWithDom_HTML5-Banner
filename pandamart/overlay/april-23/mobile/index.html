@@ -1,0 +1,135 @@
+<!-- overlay image css -->
+<link rel="stylesheet" href="//ms.purplepatch.online/overlay/foodpanda/march-2023/mobile/style.css?v=1.1">
+<style>
+    .purple__wrapper {
+        width: ` + width + `px;
+    }
+</style>
+<!-- overlay image code -->
+<div class="purple__wrapper">
+    <a href="{CLICK_MACRO}" target="_blank">
+        <div class="purple_slide logos absolute  ">
+            <img src="//ms.purplepatch.online/overlay/foodpanda/march-2023/mobile/img/logo.png" alt="">
+        </div>
+
+
+          <div class="purple_slide two absolute  showZoomIn">
+            <img src="//ms.purplepatch.online/overlay/foodpanda/march-2023/mobile/img/HEADLINE.png" alt="">
+        </div>
+        <div class="purple_slide three absolute   topBottom">
+            <img src="//ms.purplepatch.online/overlay/foodpanda/march-2023/mobile/img/HALEEM.png" alt="">
+        </div>
+
+     
+      
+      
+    </a>
+    <!-- hide and info panel -->
+    <div class="purple_generic_icon" id="purple-info-handler"></div>
+    <div class="purple_generic_close purple-close"></div>
+    <!-- hide and info panel -->
+</div>
+<!-- modal info -->
+<link rel="stylesheet" href="//ms.purplepatch.online/overlay/generic/modal.css?v=1.0">
+<div class="purple-modal-info" id="purple-modal-info">
+    <div class="purple-modal-info__window">
+        <a class="purple-modal-info__logo" href="//purplepatch.online" target="_blank"></a>
+        <div class="purple-modal-info__text">
+            <p>
+                Purplepatch is the premium advertising platform powered by artificial intelligence, using the latest in deep learning technology.. We implement image-recognition neural networks and semantic page analysis to place ads relevantly to the meaning of a website's
+                content.
+            </p>
+            <p>
+                Our platform serves native overlay ads above img which are the most visible placements at webpages. We create meaningful programmatic markets that maximize the value for Marketers and Brands
+            </p>
+            <p>To consider our partnership programs for publishers and advertisers, please visit website <a href="//purplepatch.online/" target="_blank">purplepatch.online</a></p>
+        </div>
+        <button class="purple-modal-info__close" type="button"></button>
+    </div>
+</div>
+<script>
+
+;
+(function() {
+    let purple_modal_info = document.querySelector("#purple-modal-info");
+    let purple_modal_info__window = document.querySelector(".purple-modal-info__window");
+
+
+    let bindEvent = (eventNames, selector, handler) => {
+      eventNames.split(' ').forEach((eventName) => {
+        document.addEventListener(eventName, function (event) {
+          if (event.target.matches(selector + ', ' + selector + ' *')) {
+            handler.apply(event.target.closest(selector), arguments)
+          }
+        }, false);
+      })
+    };
+
+    bindEvent('click','#purple-info-handler',function(e){
+        e.preventDefault();
+        purple_modal_info.style.display = 'block';
+        add_class(purple_modal_info, 'bgcolor');
+        remove_class(purple_modal_info, 'bgcolorRemove');
+        add_class(purple_modal_info__window, 'showZoomIn' );
+        remove_class(purple_modal_info__window, 'hideZoomOut');
+    });
+
+
+    bindEvent( 'click','.purple-close', function(e){
+        // console.log(this);
+        e.preventDefault();
+        var purple_classess = Array.from(document.querySelectorAll('[class^="purple_"]'));
+
+        for(purple_class in purple_classess) {
+            add_class(purple_classess[purple_class], 'hideZoomOut');
+        }
+    });
+
+    bindEvent( 'click', '.purple-modal-info__close', function(e){
+        remove_class(purple_modal_info, 'bgcolor');
+        add_class(purple_modal_info, 'bgcolorRemove');
+         add_class(purple_modal_info__window, 'hideZoomOut' );
+        remove_class(purple_modal_info__window, 'showZoomIn');
+
+        setTimeout(function() {
+            purple_modal_info.style.display = 'none';
+        }, 500);
+    });    
+
+    /*add and remove class function*/
+    function remove_class(element, classname) {
+        element.className = element.className.replace(classname, '');
+    }
+
+    function add_class(element, classname) {
+        element.classList ? element.classList.add(classname) : element.className += (' ' + classname);
+    }  
+
+    bindEvent('click','#purple__wrapper .message',function(e){ 
+        add_class( purple_message, 'hideZoomOut');
+
+    });
+
+      /*foodpanda custom code*/
+
+
+    var two = document.querySelector('.two');
+
+
+    setTimeout(slide_one,false);
+
+    function slide_one(){
+        remove_class(two, 'hidden');
+        setTimeout(function(){
+            add_class(two,'hidden')
+            setTimeout(function(){
+                slide_one();
+            },500)
+        },3000)
+    
+       
+         
+    }
+})();
+</script>
+

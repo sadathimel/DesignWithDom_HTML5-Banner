@@ -1,0 +1,224 @@
+
+ .purple__wrapper * {
+     margin: 0;
+     padding: 0;
+     user-select: none;
+ }
+ .hidden{
+    display: none;
+ }
+ .purple__wrapper img {
+     background: transparent !important;
+ }
+ 
+ .purple__wrapper .purple_slide img {
+     max-width: 100%;
+     max-height: 100%
+ }
+ 
+ .purple_slide_bg img {
+     width: 100%
+ }
+ 
+ #purple_image_overlay_section {
+     position: relative;
+ }
+ 
+ .purple__wrapper {
+     bottom: 0;
+     width: 320px;
+     height: 70px;
+     position: absolute;
+     background: url('//ms.purplepatch.online/overlay/foodpanda/march-2023/mobile/img/bg.png');
+     cursor: pointer;
+     background-size: 100% 70px;
+     left: 0;
+     right: 0;
+     margin: 0 auto;
+     background-position: bottom;
+     background-repeat: no-repeat;
+     overflow: hidden;
+ }
+ 
+ .purple_slide_2 {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.logos {
+    width: 66px;
+    height: 21px;
+    left: 5%;
+    top: 57%;
+}
+
+.one {
+    width: 106px;
+    height: 34px;
+    top: 41%;
+    left: 39%;
+}
+
+.two {
+    width: 128px;
+    height: 34px;
+    left: 31%;
+    top: 47%;
+}
+
+.three {
+    width: 58px;
+    height: 38px;
+    right: 4%;
+    top: 45%;
+}
+
+
+
+ .absolute {
+     position: absolute;
+ }
+ 
+ .hidden {
+     display: none;
+ }
+ 
+ .pulse {
+     animation: pulse 2s ease-in-out infinite;
+ }
+ 
+ @keyframes pulse {
+     0% {
+         transform: scaleX(1) scaleY(1)
+     }
+     50% {
+         transform: scale3d(.95, .95, .95)
+     }
+     to {
+         transform: scaleX(1) scaleY(1)
+     }
+ }
+ 
+ .pulse_2 {
+     animation: pulse_2 1.5s ease-in-out infinite;
+ }
+ 
+ @keyframes pulse_2 {
+     0% {
+         transform: scaleX(1) scaleY(1)
+     }
+     50% {
+         transform: scale3d(.97, .95, .95)
+     }
+     to {
+         transform: scaleX(1) scaleY(1)
+     }
+ }
+ 
+ @keyframes hideZoomOut {
+     100% {
+         opacity: 0;
+         transform: scale3d(.3, .3, .3)
+     }
+ }
+ 
+ @keyframes hideZoomOutBottom {
+     100% {
+         opacity: 0;
+         transform: scale3d(.3, .3, .3) translateY(100%)
+     }
+ }
+ 
+ @keyframes showZoomIn {
+     from {
+         transform: scale3d(.5, .5, .5)
+     }
+     to {
+         transform: scale3d(1, 1, 1)
+     }
+ }
+ 
+ @keyframes showZoomInBottom {
+     from {
+         transform: scale3d(.5, .5, .5) translateY(50%)
+     }
+     to {
+         transform: scale3d(1, 1, 1)
+     }
+ }
+ 
+ @keyframes topBottom {
+     0%,
+     100% {
+         transform: translateY(0px);
+     }
+     50% {
+         transform: translateY(6px);
+     }
+ }
+ 
+ .hideZoomOut {
+     animation-name: hideZoomOut;
+     animation-duration: .5s;
+     animation-fill-mode: both;
+     animation-iteration-count: 1
+ }
+ 
+ .hideZoomOutBottom {
+     animation-name: hideZoomOutBottom;
+     animation-duration: .5s;
+     animation-fill-mode: both;
+     animation-iteration-count: 1
+ }
+ 
+ .showZoomIn {
+     animation-name: showZoomIn;
+     animation-duration: .5s;
+     animation-fill-mode: both
+ }
+ 
+ .showZoomInBottom {
+     animation-name: showZoomInBottom;
+     animation-duration: .5s;
+     animation-fill-mode: both
+ }
+ 
+ .topBottom {
+     animation-name: topBottom;
+     animation-duration: 3s;
+     animation-fill-mode: both;
+     animation-iteration-count: infinite;
+ }
+ /*info css*/
+ 
+ .purple_generic_close {
+     position: absolute;
+     bottom: 70%;
+     right: 0px;
+     background: url('//ms.purplepatch.online/overlay/generic/close.svg') no-repeat;
+     background-size: 100% 100%;
+     width: 15px;
+     height: 15px;
+     -webkit-animation: fadeIn24 1s .4s both;
+     animation: fadeIn24 1s .4s both;
+     cursor: pointer;
+     margin: 0!important;
+     z-index: 1;
+ }
+ 
+ .purple_generic_icon {
+     position: absolute;
+     bottom: 45%;
+     right: 0px;
+     background: url('//ms.purplepatch.online/overlay/generic/info.svg') no-repeat;
+     background-size: 100% 100%;
+     width: 15px;
+     height: 15px;
+     -webkit-animation: fadeIn24 1s .4s both;
+     animation: fadeIn24 1s .4s both;
+     cursor: pointer;
+     margin: 0!important;
+     z-index: 1;
+ }

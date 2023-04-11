@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Curtain animation by purplepatch</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="ad.size" content="width=300,height=250" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="//purplepatch.online/assets/ico/favicon.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="//fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      img {
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+
+      #purpleArea {
+        width: 300px;
+        height: 250px;
+        position: relative;
+      }
+
+      .absfull {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      #mainArea {
+        background-color: transparent;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #4a4b9e;
+      }
+
+      .screen {
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+
+      .screen.active {
+        opacity: 1;
+        z-index: 9;
+        transition: 0.5s all;
+      }
+
+      .item {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+      }
+
+      .item.active {
+        animation: scale 1s ease-out;
+        transform: scale(1);
+        z-index: 1;
+      }
+
+      .item > * {
+        width: 50%;
+        height: 100%;
+        background-size: 200% 100%;
+        margin: 0;
+      }
+
+      .item:first-child > * {
+        background-position: center left;
+        background: url("./300250.jpg");
+      }
+
+      .item.active > * {
+        transform: rotateY(0);
+        opacity: 1;
+        transition: 0.2s;
+      }
+
+      .item:not(.active) {
+        transition: 1s;
+        opacity: 0;
+      }
+
+      .item:not(.active) > .right {
+        animation: rotateRight 0.7s ease-out;
+      }
+
+      .item:not(.active) > .left {
+        animation: rotateLeft 0.7s ease-out;
+      }
+
+      .item > .right {
+        background-position: center right;
+        transform-origin: right;
+      }
+
+      .item > .left {
+        background-position: center left;
+        transform-origin: left;
+      }
+
+      .item.active video {
+        width: 100%;
+      }
+
+      @keyframes scale {
+        0%,
+        50% {
+          transform: scale(0.5);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes rotateLeft {
+        0% {
+          opacity: 1;
+          transform: rotateY(0);
+        }
+        50% {
+          opacity: 1;
+          transform: rotateY(-70deg);
+        }
+        100% {
+          opacity: 0.7;
+          transform: rotateY(-70deg);
+        }
+      }
+
+      @keyframes rotateRight {
+        0% {
+          opacity: 1;
+          transform: rotateY(0);
+        }
+        50% {
+          opacity: 1;
+          transform: rotateY(70deg);
+        }
+        100% {
+          opacity: 0.7;
+          transform: rotateY(70deg);
+        }
+      }
+
+      .video-controls {
+        bottom: 0px;
+        position: absolute;
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 96%;
+        height: 32px;
+      }
+
+      .toggle {
+        background: 0 0;
+        color: #fff;
+        border: none;
+        outline: 0;
+        cursor: pointer;
+      }
+
+      .sound {
+        float: right;
+        background: 0 0;
+        color: #fff;
+        border: none;
+        outline: 0;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <a href="/adgallery" target="_blank"> -->
+    <div id="purpleArea" class="rct">
+      <div id="mainArea" class="absfull">
+        <div class="screen screen1 active">
+          <div class="item active">
+            <div class="left"></div>
+            <div class="right"></div>
+          </div>
+          <div class="item" id="video_item">
+            <video width="300" height="250" playsinline autoplay muted>
+              <source src="./300250.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-controls">
+              <button id="toggle" class="btn toggle">
+                <i class="material-icons">play_arrow</i>
+              </button>
+              <!-- <button id="sound" class="btn sound"><i class="material-icons">volume_off</i></button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- </a> -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      var items = document.querySelectorAll(".item");
+
+      function changeScreen() {
+        let current = document.querySelector(".item.active");
+
+        if ((video = current.querySelector("video"))) {
+          setTimeout(function () {
+            video.currentTime = 0;
+            video.play();
+          }, 500);
+          video.addEventListener("ended", function () {
+            setTimeout(function () {
+              next_slide_runner(current);
+              setTimeout(changeScreen, 1000);
+            }, 500);
+          });
+        } else {
+          setTimeout(function () {
+            next_slide_runner(current);
+            setTimeout(changeScreen, 1000);
+          }, 3000);
+        }
+      }
+
+      function next_slide_runner(current) {
+        if (current.nextElementSibling) {
+          current.nextElementSibling.classList.add("active");
+        } else {
+          items[0].classList.add("active");
+        }
+        current.classList.remove("active");
+      }
+
+      window.addEventListener("load", function (event) {
+        items[0].classList.add("active");
+        setTimeout(changeScreen, 1200);
+      });
+
+      var player = document.querySelector("#video_item");
+      var video = player.querySelector("video");
+      var toggle = player.querySelector("#toggle");
+      var sound = player.querySelector("#sound");
+
+      var playIcon = `<i class="material-icons">play_arrow</i>`;
+      var pauseIcon = `<i class="material-icons">pause</i>`;
+      var volumeUp = `<i class="material-icons">volume_up</i>`;
+      var volumeOff = `<i class="material-icons">volume_off</i>`;
+
+      function togglePlay(e) {
+        var playOrPause = video.paused ? "play" : "pause";
+        video[playOrPause]();
+      }
+
+      function updatePlayPause(e) {
+        var playPauseIcon = this.paused ? playIcon : pauseIcon;
+        toggle.innerHTML = playPauseIcon;
+      }
+
+      function toggleSound(e) {
+        var soundIcon = video.muted ? volumeUp : volumeOff;
+        sound.innerHTML = soundIcon;
+
+        if (video.muted) video.muted = false;
+        else video.muted = true;
+      }
+
+      $("#video_item video").on("play", updatePlayPause);
+      $("#video_item video").on("pause", updatePlayPause);
+
+      $("#video_item #toggle").click(togglePlay);
+      $("#video_item #sound").click(toggleSound);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="ad.size" content="width=300,height=250" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <title>Generic Hadith by Purple Patch</title>
+    <link rel="stylesheet" href="./300250/animation.css" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="//purplepatch.online/assets/ico/favicon.ico"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+      }
+      .wrapper {
+        width: 300px;
+        height: 250px;
+        position: relative;
+        background-image: url(./300250/bg.jpg);
+        background-size: 100% 100%;
+        overflow: hidden;
+      }
+      .absolute {
+        position: absolute;
+      }
+      .slide_1,
+      .slide_2,
+      .slide_3,
+      .element_1_1,
+      .element_2_1,
+      .element_3_1 {
+        width: 100%;
+        height: 100%;
+      }
+      .slide_1 {
+        cursor: pointer;
+      }
+      .element_1_3 {
+        bottom: 3px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        cursor: pointer;
+        z-index: 1;
+        width: 71px;
+        height: 43px;
+        margin: 0 auto;
+      }
+      .element_2_4 {
+        width: 25px;
+        height: 25px;
+        right: 10px;
+        top: 13px;
+        cursor: pointer;
+      }
+      .element_2_5 {
+        width: 25px;
+        height: 25px;
+        right: 10px;
+        top: 37px;
+        cursor: pointer;
+      }
+      .element_2_4 img,
+      .element_2_5 img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .element_3_1 {
+        top: 0;
+        left: 0;
+        cursor: pointer;
+        z-index: 999;
+        width: 300px;
+        height: 250px;
+      }
+      .element_3_2 {
+        top: 98px;
+        right: 10px;
+        animation: run 3s linear infinite alternate;
+      }
+      .element_3_2 img {
+        width: 70px;
+        height: 70px;
+        filter: opacity(1) drop-shadow(0 0 0 #652f54) sepia(40%);
+      }
+
+      @keyframes run {
+        0% {
+          right: 10px;
+        }
+        50% {
+          right: 45px;
+          transform: scale3d(0.9, 0.9, 0.9);
+        }
+        100% {
+          right: 10px;
+        }
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="slide_1 absolute hidden">
+        <div class="element_1_1 absolute hidden">
+          <img src="./300250/ramjan.png" alt="" />
+        </div>
+        <div class="element_1_2 absolute hidden">
+          <img src="./300250/mosjid.png" alt="" />
+        </div>
+        <div class="element_1_3 absolute hidden">
+          <img src="./300250/taptolisten.png" alt="" />
+        </div>
+        <div class="element_1_4 absolute hidden">
+          <img src="./300250/najat.png" alt="" />
+        </div>
+        <div class="element_1_5 absolute hidden">
+          <img src="./300250/logo.png" alt="" />
+        </div>
+      </div>
+      <div class="slide_2 absolute hidden">
+        <div class="element_2_1 absolute hidden">
+          <img src="./300250/hadith.png" alt="" />
+        </div>
+        <div class="element_2_2 absolute hidden">
+          <img src="./300250/hadithtop.png" alt="" />
+        </div>
+        <div class="element_2_3 absolute hidden">
+          <img src="./300250/bottom.png" alt="" />
+        </div>
+        <div class="element_2_4 absolute hidden">
+          <img src="./300250/sound.png" alt="" />
+        </div>
+        <div class="element_2_5 absolute hidden">
+          <img src="./300250/mute.png" alt="" />
+        </div>
+      </div>
+      <div class="slide_3 absolute hidden">
+        <div class="element_3_1 absolute hidden">
+          <img src="./300250/last.png" alt="" />
+        </div>
+        <div class="element_3_2 absolute hidden">
+          <img src="./300250/finger.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="./300250/wizards.js?v=1.0"></script>
+    <script type="text/javascript">
+      var landingArea = document.querySelector(".element_3_1");
+      landingArea.addEventListener("click", () => {
+        window.open("#", "_blank");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" draggable="false" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" draggable="false" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+      draggable="false"
+    />
+    <title>Pusti</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .pp_wrapper {
+        width: 300px;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+        left: 0px;
+        top: 0px;
+      }
+
+      /* slide one */
+      .slide1 {
+        width: 100%;
+        height: 100%;
+        background-image: url("./slide1/bg.jpg");
+        /* background-image: url("./slide1.png"); */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+      }
+
+      .fg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .frame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .lightScreen {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        mix-blend-mode: screen;
+      }
+
+      .product {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .maincopy {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .copy2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      /* slide two */
+
+      .slide2 {
+        width: 100%;
+        height: 100%;
+        background-image: url("./slide1/bg.jpg");
+        /* background-image: url("./slide2.png"); */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+      }
+
+      .copys2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .seeds {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .btn {
+        position: absolute;
+
+        width: 104px;
+        height: 32px;
+        right: 28px;
+        bottom: 25px;
+      }
+
+      /* utility css */
+
+      .pp_absolute {
+        position: absolute;
+      }
+
+      .pp_hidden {
+        display: none;
+      }
+
+      .pp_zeroOpacity {
+        opacity: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="{CLICK_MACRO}" target="_blank">
+      <div class="pp_wrapper">
+        <div class="slide1">
+          <img
+            src="./slide1/frame.png"
+            alt="frame"
+            class="frame pp_hidden pp_zeroOpacity"
+            draggable="false"
+          />
+          <img
+            src="./slide1/fg.png"
+            alt="fg"
+            class="fg pp_hidden pp_zeroOpacity"
+            draggable="false"
+          />
+
+          <img
+            src="./slide1/light-screen.png"
+            alt="lightScreen"
+            class="lightScreen pp_hidden pp_zeroOpacity"
+            draggable="false"
+          />
+          <img
+            src="./slide1/product.png"
+            alt="product"
+            class="product pp_hidden pp_zeroOpacity"
+            draggable="false"
+          />
+          <img
+            src="./slide1/maincopy.png"
+            alt="maincopy"
+            class="maincopy pp_hidden pp_zeroOpacity"
+            draggable="false"
+          />
+          <img
+            src="./slide1/copy2.png"
+            alt="copy2"
+            class="copy2 pp_hidden pp_zeroOpacity"
+            draggable="false"
+          />
+        </div>
+        <div class="slide2">
+          <img
+            src="./slide1/frame.png"
+            alt="frame"
+            class="frame pp_hidden pp_zeroOpacity"
+            draggable="false"
+          />
+          <img
+            src="./slide2/copys2.png"
+            alt="copys2"
+            class="copys2 pp_hidden pp_zeroOpacity"
+            draggable="false"
+          />
+          <img
+            src="./slide2/seeds.png"
+            alt="seeds"
+            class="seeds pp_hidden pp_zeroOpacity"
+            draggable="false"
+          />
+          <img
+            src="./slide2/btn1.png "
+            alt="btn"
+            class="btn pp_hidden pp_zeroOpacity"
+            draggable="false"
+          />
+        </div>
+      </div>
+    </a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/Draggable.min.js"></script>
+
+    <script>
+      var t1 = gsap.timeline({
+      
+        repeatDelay: 1,
+        yoyo: true,
+      });
+      // var t1 = gsap.timeline();
+      var btn = document.querySelector(".btn");
+
+      t1.to([".frame", ".fg", ".product", ".maincopy", ".copy2"], {
+        display: "none",
+        duration: 1,
+        opacity: 0,
+      });
+      t1.to(".frame", {
+        display: "block",
+        opacity: 1,
+        duration: 1,
+      });
+      t1.fromTo(
+        ".product",
+        { y: -300, opacity: 1 },
+        {
+          display: "block",
+          y: 0,
+          duration: 5,
+        }
+      );
+      
+      t1.to(
+        ".fg",
+        {
+          opacity: 1,
+          duration: 1,
+          display: "block",
+        },
+        ">"
+      );
+      t1.to(
+        ".lightScreen",
+        {
+          opacity: 1,
+          duration: 1,
+          display: "block",
+        },
+        ">"
+      );
+      t1.to(".product", { opacity: 0,display:'none' });
+      t1.to(".fg", { opacity: 0,display:'none' });
+      t1.repeat();
+      //   t1.from(
+      //     ".maincopy",
+      //     {
+      //       duration: 1,
+      //       y: -300,
+      //       scale: 1.1,
+      //       ease: "power1.inOut",
+      //     },
+      //     "<"
+      //   );
+      //   t1.from(".copy2", {
+      //     duration: 1,
+      //     x: -300,
+      //     scale: 1.1,
+      //     ease: "power1.inOut",
+      //   });
+      //   t1.fromTo(
+      //     ".slide1",
+      //     {
+      //       display: "block",
+      //     },
+      //     {
+      //       display: "none",
+      //     }
+      //   );
+      //   t1.from(".copys2", {
+      //     duration: 1,
+      //     x: 300,
+      //     scale: 1.1,
+      //     ease: "power1.inOut",
+      //   });
+      //   t1.from(
+      //     ".seeds",
+      //     {
+      //       duration: 1,
+      //       x: -300,
+      //       scale: 1.1,
+      //       ease: "power1.inOut",
+      //     },
+      //     "<"
+      //   );
+      //   t1.fromTo(
+      //     ".btn",
+      //     {
+      //       duration: 1,
+      //       scale: 1,
+      //     },
+      //     {
+      //       display: "block",
+      //       duration: 1,
+      //       scale: 1.1,
+      //       repeat: -1,
+      //       yoyo: true,
+      //       ease: "power1.inOut",
+      //     }
+      //   );
+      // setTimeout(function(){
+      //     setTimeout(rep(), 5000);
+      //     rep();
+      // }, 5000);
+
+      //   t1.repeat(4);
+    </script>
+  </body>
+</html>
