@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .pp_wrapper {
+        width: 300px;
+        height: 250px;
+        overflow: hidden;
+        position: relative;
+      }
+      .slider1 {
+        width: 300px;
+        height: 250px;
+        position: absolute;
+        background-image: url(./bg.jpg);
+        /* background-image: url(../slide1Preview.jpg); */
+        /* background-image: url(../slide2Preview.jpg); */
+      }
+      .semai {
+        width: 67px;
+        height: 67px;
+        position: absolute;
+        bottom: 50px;
+        left: 40px;
+        z-index: 2;
+      }
+      .touch {
+        width: 32px;
+        height: 36px;
+        position: absolute;
+        bottom: 20px;
+        left: 95px;
+      }
+      .pack {
+        width: 237px;
+        height: 233px;
+        position: absolute;
+        bottom: -40px;
+        left: 156px;
+      }
+      .copy {
+        width: 140px;
+        height: 42px;
+        position: absolute;
+        bottom: 52px;
+        right: 133px;
+        z-index: 1;
+      }
+      .zeroopacity {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pp_wrapper">
+      <div class="slider1" onclick="Myclick()">
+        <img src="./pack.png" alt="" class="pack" />
+        <img src="./copy.png" alt="" class="copy zeroopacity" />
+      </div>
+      <div class="slide2">
+        <img src="./semaicopy.png" alt="" class="semai" />
+        <img src="./touch.png" alt="" class="touch" />
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+
+    <script>
+      // click to open new tab function
+
+      function Myclick() {
+        window.open("{CLICK_MACRO}", "_blank");
+      }
+
+      let tl = gsap.timeline();
+      var semai = document.querySelector(".semai");
+      var touch = document.querySelector(".touch");
+      tl.fromTo(
+        ".touch",
+        { scale: 0.9 },
+        { scale: 1, duration: 0.3, yoyo: true, repeat: -1 }
+      );
+      semai.addEventListener("click", function () {
+        let ti = gsap.timeline();
+        ti.to(".pack", { duration: 2, x: -18, yoyo: true, repeat: -1 })
+          .to(".semai", { duration: 1.5, y: -130, x: 34 }, "-=2")
+          .to(".touch", { duration: 0, opacity: 0 }, "-=2")
+          .to(".copy", { duration: 0.8, opacity: 1 }, "=1")
+          .fromTo(
+            ".copy",
+            { scale: 0.8 },
+            { scale: 0.9, duration: 0.8, yoyo: true, repeat: -1 },
+            "-=2"
+          );
+      });
+    </script>
+  </body>
+</html>
