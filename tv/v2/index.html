@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" style="--open: 4.7034%">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="ad.size" content="width=300,height=250" />
+    <title>apexzipper Animation by PurplePatch</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="//purplepatch.online/assets/ico/favicon.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="./style.css?v=1.1"
+    />
+
+    <style>
+      .eliment2 {
+        background-image: url("./assets/Slide2/a/bg.jpg");
+        /* background-image: url("./assets/slide2a.jpg"); */
+      }
+
+      .slider2 a {
+        cursor: pointer;
+        z-index: 9999;
+      }
+
+      .slider3 {
+        width: 300px;
+        height: 250px;
+        /* background-image: url("./assets/slide2b.jpg"); */
+        /* background-image: url("./assets/Slide2/a/bg.jpg"); */
+      }
+      .bgimg {
+        width: 500px;
+        height: 250px;
+        position: absolute;
+        top: 0px;
+        left: -133px;
+      }
+
+      .imglogo {
+        width: 82px;
+        height: 17px;
+        top: 12px;
+        right: 5px;
+        position: absolute;
+        cursor: pointer;
+        /* background: url('//ms.purplepatch.online/apex/january-22/assets/img/bg2.jpg'); */
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="pp_wrapper">
+      <div class="slider1">
+        <div id="left_panel"></div>
+        <div id="right_panel"></div>
+        <div class="updown" id="zip_tab"></div>
+      </div>
+      <div class="slider2 eliment2 hidden">
+        <div class="element_1">
+          <img
+            src="./assets/Slide2/a/offerbase.png"
+          />
+        </div>
+        <div class="element_2 two">
+          <img
+            src="./assets/Slide2/a/LogoWhite.png"
+          />
+        </div>
+        <div class="element_3">
+          <img
+            src="./assets/Slide2/a/offer.png"
+          />
+        </div>
+        <div class="element_4">
+          <img
+            src="./assets/Slide2/a/copy.png"
+          />
+        </div>
+      </div>
+      <div class="slider3 hidden">
+        <img
+          class="bgimg"
+          src="./assets/Slide2/a/bg.jpg"
+          alt=""
+        />
+        <div class="element_5">
+          <img
+            src="./assets/Slide2/b/copysmall.png"
+          />
+        </div>
+        <div class="element_6">
+          <img
+            src="./assets/Slide2/b/Couple.png"
+          />
+        </div>
+        <div class="element_7">
+          <img
+            src="./assets/Slide2/b/offer.png"
+          />
+        </div>
+        <img
+          class="imglogo"
+          src="./assets/Slide2/a/LogoWhite.png"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./purplepatch.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $(".slider2").click(function () {
+          window.open("{CLICK_MACRO}", "_blank");
+        });
+        $(".slider3").click(function () {
+          window.open("{CLICK_MACRO}", "_blank");
+        });
+
+        setTimeout(slide_2, false);
+        function slide_2() {
+          $(".element_1").addClass("spring");
+          // $(".element_2").addClass("spring1");
+          $(".element_3").addClass("spring");
+          $(".element_4").addClass("circle");
+          $(".element_7").addClass("offer");
+          setTimeout(function () {
+            $(".element_1").removeClass("spring");
+            $(".element_2").removeClass("spring1");
+            $(".element_3").removeClass("spring");
+            $(".element_4").removeClass("circle");
+            $(".element_5").removeClass("offer");
+            setTimeout(function () {
+              slide_2();
+            }, 10);
+          }, 5000);
+        }
+      });
+    </script>
+  </body>
+</html>
