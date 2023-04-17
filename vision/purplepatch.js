@@ -23,7 +23,7 @@ tab.addEventListener(
     if (touch_perc > 20.267993874425727) {
       touch_perc = 20.267993874425727;
 
-      $(".touch").addClass("hidden");
+      // $("#zip_tab").addClass('overflow');
 
       setTimeout(() => {
         $("#left_panel").addClass("hidden");
@@ -91,7 +91,7 @@ function dragElement(elmnt) {
 
     if (perc > 23.267993874425727) {
       perc = 23.267993874425727;
-      $(".touch").addClass("hidden");
+      // $("#zip_tab").addClass('overflow');
 
       setTimeout(() => {
         $("#left_panel").addClass("hidden");
@@ -103,11 +103,10 @@ function dragElement(elmnt) {
           $(".slider2").removeClass("hidden").addClass("zoomIn");
           setTimeout(() => {
             $(".slider3").removeClass("hidden");
-            $(".element_6").addClass("slide-left");
             $(".slider2").addClass("hidden");
           }, 5000);
-        }, 100);
-      }, 600);
+        }, 0);
+      }, 500);
     }
     // $(".slider2").removeClass('.hidden');
     // $(".slider2").addClass('.fadeInZoom');

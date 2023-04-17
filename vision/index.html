@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="ad.size" content="width=300,height=250" />
-    <title>Vision zipper Animation by PurplePatch</title>
+    <title>apexzipper Animation by PurplePatch</title>
     <link
       rel="shortcut icon"
       type="image/x-icon"
@@ -15,8 +15,8 @@
 
     <style>
       .eliment2 {
-        background-image: url("./assets/Slide2/a/bg.jpg");
-        /* background-image: url("./assets/slide2a.jpg"); */
+        background: url("./assets/slide2/a/bg.jpg");
+        /* background: url("./assets/slide2a.jpg"); */
       }
 
       .slider2 a {
@@ -28,7 +28,7 @@
         width: 300px;
         height: 250px;
         /* background-image: url("./assets/slide2b.jpg"); */
-        /* background-image: url("./assets/Slide2/a/bg.jpg"); */
+        /* background: url("./assets/slide2/a/bg.jpg"); */
       }
       .bgimg {
         width: 500px;
@@ -36,94 +36,6 @@
         position: absolute;
         top: 0px;
         left: -133px;
-        cursor: pointer;
-      }
-
-      .imglogo {
-        width: 80px;
-        height: 29px;
-        top: 12px;
-        right: 5px;
-        position: absolute;
-        cursor: pointer;
-        /* background: url('//ms.purplepatch.online/apex/january-22/assets/img/bg2.jpg'); */
-        background-repeat: no-repeat;
-      }
-      .touch {
-        width: 32px;
-        height: 32px;
-        position: absolute;
-        top: 96px;
-        left: 163px;
-        cursor: pointer;
-      }
-
-      /* @keyframes pulse {
-        0% {
-          transform: scaleX(1);
-        }
-        50% {
-          transform: scale3d(0.95, 0.95, 0.95);
-        }
-        to {
-          transform: scaleX(1);
-        }
-      }
-      .pulse {
-        animation-name: pulse;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-      } */
-
-      .touch {
-        -webkit-animation: mover 1.5s infinite alternate;
-        animation: mover 1s infinite alternate;
-      }
-      .touch {
-        -webkit-animation: mover 1.5s infinite alternate;
-        animation: mover 1s infinite alternate;
-      }
-      @-webkit-keyframes mover {
-        0% {
-          transform: translateY(0);
-        }
-        100% {
-          transform: translateY(-10px);
-        }
-      }
-      @keyframes mover {
-        0% {
-          transform: translateY(0);
-        }
-        100% {
-          transform: translateY(-10px);
-        }
-      }
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-          transform: scale3d(0.1, 0.1, 0.1);
-        }
-        100% {
-          opacity: 1;
-          transform: scale3d(1, 1, 1);
-        }
-      }
-
-      .fadeIn {
-        animation-name: fadeIn;
-        animation-duration: 1s;
-        animation-timing-function: ease-in;
-      }
-      @keyframes fadeOut {
-        0% {
-          opacity: 1;
-          transform: scale3d(1, 1, 1);
-        }
-        100% {
-          opacity: 0;
-          transform: scale3d(0.1, 0.1, 0.1);
-        }
       }
     </style>
   </head>
@@ -134,7 +46,6 @@
         <div id="left_panel"></div>
         <div id="right_panel"></div>
         <div class="updown" id="zip_tab"></div>
-        <img src="./assets/Slide1/touch.png" alt="" class="touch pulse" />
       </div>
       <div class="slider2 eliment2 hidden">
         <div class="element_1">
@@ -152,7 +63,7 @@
       </div>
       <div class="slider3 hidden">
         <img class="bgimg" src="./assets/Slide2/a/bg.jpg" alt="" />
-        <div class="element_5 fadeIn">
+        <div class="element_5">
           <img src="./assets/Slide2/b/copysmall.png" />
         </div>
         <div class="element_6">
@@ -161,7 +72,6 @@
         <div class="element_7">
           <img src="./assets/Slide2/b/offer.png" />
         </div>
-        <img class="imglogo" src="./assets/Slide2/a/LogoWhite.png" alt="" />
       </div>
     </div>
 

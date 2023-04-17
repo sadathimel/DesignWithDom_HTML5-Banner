@@ -200,7 +200,7 @@ p {
   position: absolute;
   right: 0;
   top: 0;
-  background: url("./assets/Slide1/bg1R.png"), var(--bg-color);
+  background: url("./assets/slide1/bg1R.png"), var(--bg-color);
   border-radius: var(--open) 0 0 0;
   -webkit-border-radius: var(--open) 0 0 0;
   -moz-border-radius: var(--open) 0 0 0;
@@ -577,7 +577,7 @@ p {
   animation: rotateReverse 2s infinite linear;
 }
 .slider2 .eliment2 {
-  background-image: url("./assets/Slide2/a/bg.jpg");
+  /* background:url('//ms.purplepatch.online/apex/january-22/assets/3dview/bg2.jpg?v=1.2.4'); */
   z-index: 999;
 }
 .demo__content {
@@ -932,32 +932,5 @@ p {
   100% {
     -webkit-transform: rotateZ(0deg) scale3d(1, 1, 1);
     -webkit-animation-timing-function: linear;
-  }
-}
-
-.slide-left {
-  -webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-
-@-webkit-keyframes slide-left {
-  0% {
-    -webkit-transform: translateX(137px);
-    transform: translateX(137px);
-  }
-  100% {
-    -webkit-transform: translateX(0px);
-    transform: translateX(0px);
-  }
-}
-@keyframes slide-left {
-  0% {
-    -webkit-transform: translateX(137px);
-    transform: translateX(137px);
-  }
-  100% {
-    -webkit-transform: translateX(0px);
-    transform: translateX(0px);
   }
 }
